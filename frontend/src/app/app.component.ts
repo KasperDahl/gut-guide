@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,15 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'gut-guide';
+  message: string = '';
+
+  constructor(private apiService: ApiService) { }
+
+  ngOnInit(): void {
+      this.apiService.getHello().subscribe((data: string) => {
+          this.message = data;
+      });
+  }
 }
