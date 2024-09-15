@@ -1,23 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ApiService } from './services/api.service';
+import { NavbarComponent } from "./navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
-  title = 'gut-guide';
-  message: string = '';
+export class AppComponent {
 
-  constructor(private apiService: ApiService) { }
-
-  ngOnInit(): void {
-      this.apiService.getHello().subscribe((data: string) => {
-          this.message = data;
-      });
-  }
 }
