@@ -1,0 +1,11 @@
+.recipe-card {
+  max-width: 300px;
+  margin: 10px;
+}
+mat-card-content {
+  display: flex;
+  align-items: center;
+}
+mat-icon {
+  margin-right: 5px;
+}

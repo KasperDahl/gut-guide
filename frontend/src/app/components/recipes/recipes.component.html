@@ -1,1 +1,15 @@
 <p>Here you can find all recipes</p>
+<mat-grid-list cols="3" rowHeight="350px">
+    <mat-grid-tile *ngFor="let recipe of recipes$ | async">
+      <mat-card class="recipe-card">
+        <mat-card-header>
+          <mat-card-title>{{ recipe.name }}</mat-card-title>
+          <mat-card-subtitle>{{ recipe.mealType }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/placeholder-image.jpg" alt="{{ recipe.name }}">
+        <mat-card-content>
+          <p><mat-icon>timer</mat-icon> {{ recipe.timeToCook }} minutes</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>

@@ -1,20 +1,4 @@
-nav ul {
-    list-style-type: none;  // Removes the bullet points
-    padding: 0;             // Removes padding around the list
-    margin: 0;              // Removes any margin around the list
-  }
-  
-  nav ul li {
-    display: inline;        // Make list items display inline (horizontally)
-    margin-right: 20px;     // Adds some spacing between each link
-  }
-  
-  nav ul li a {
-    text-decoration: none;  // Removes the underline from the links
-    color: black;           // You can set the color to whatever you want
-  }
-  
-  nav ul li a:hover {
-    color: blue;            // Changes link color on hover for visual feedback
-  }
+.spacer {
+  flex: 1 1 auto;
+}
   
