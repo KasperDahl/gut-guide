@@ -1,77 +1,129 @@
-<form [formGroup]="recipeForm" (ngSubmit)="saveRecipe()">
-  <mat-form-field>
-    <mat-label>Recipe Name</mat-label>
-    <input matInput formControlName="name">
-  </mat-form-field>
-
-  <div formArrayName="instructions">
-    <div *ngFor="let instruction of instructions.controls; let i = index">
-      <mat-form-field>
-        <mat-label>Instruction {{i + 1}}</mat-label>
-        <input matInput [formControlName]="i">
-      </mat-form-field>
-    </div>
-    <button mat-raised-button type="button" (click)="addInstruction()">Add Instruction</button>
-  </div>
-
-  <div formArrayName="ingredients">
-    <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
-      <mat-form-field>
-        <mat-label>Ingredient Name</mat-label>
-        <input matInput formControlName="name">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Quantity</mat-label>
-        <input matInput formControlName="quantity">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Unit</mat-label>
-        <mat-select formControlName="unit">
-          <mat-option value="g">g</mat-option>
-          <mat-option value="skiver">skiver</mat-option>
-          <mat-option value="bundt">bundt</mat-option>
-          <mat-option value="knivspids">knivspids</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <button mat-raised-button type="button" (click)="addIngredient()">Add Ingredient</button>
-  </div>
-
-  <mat-form-field>
-    <mat-label>Servings</mat-label>
-    <input matInput formControlName="servings">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Meal Type</mat-label>
-    <mat-select formControlName="mealType">
-      <mat-option value="Hovedret">Hovedret</mat-option>
-      <mat-option value="Forret">Forret</mat-option>
-      <mat-option value="Dessert">Dessert</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Full Meal</mat-label>
-    <mat-select formControlName="fullMeal">
-      <mat-option value="true">Yes</mat-option>
-      <mat-option value="false">No</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Tried</mat-label>
-    <mat-select formControlName="tried">
-      <mat-option value="true">Yes</mat-option>
-      <mat-option value="false">No</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Comments</mat-label>
-    <textarea matInput formControlName="comments"></textarea>
-  </mat-form-field>
-
-  <button mat-raised-button type="submit">Save</button>
-  <button mat-raised-button type="button" (click)="discardRecipe()">Discard</button>
+<form [formGroup]="recipeForm">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Add New Recipe</h1>
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+  <mat-card-actions>
+    <button class="custom-button" type="submit">Save Recipe</button>
+    <button class="custom-button" type="button">Discard</button>
+  </mat-card-actions>
 </form>
+
+  <!-- <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="recipe-form">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add New Recipe</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Recipe Name</mat-label>
+          <input matInput formControlName="name" placeholder="Enter recipe name">
+        </mat-form-field>
+      </div>
+
+      <div class="form-section">
+        <h3>Instructions</h3>
+        <div formArrayName="instructions">
+          <div *ngFor="let instruction of instructions.controls; let i=index" class="form-row">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Step {{i + 1}}</mat-label>
+              <input matInput [formControlName]="i" placeholder="Enter instruction">
+            </mat-form-field>
+            <button mat-icon-button color="warn" type="button" (click)="removeInstruction(i)" *ngIf="instructions.length > 1">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+        <button mat-button type="button" (click)="addInstruction()">
+          <mat-icon>add</mat-icon> Add Instruction
+        </button>
+      </div>
+
+      <div class="form-section">
+        <h3>Ingredients</h3>
+        <div formArrayName="ingredients">
+          <div *ngFor="let ingredient of ingredients.controls; let i=index" [formGroupName]="i" class="ingredient-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" placeholder="Ingredient name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Quantity</mat-label>
+              <input matInput type="number" formControlName="quantity">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Unit</mat-label>
+              <input matInput formControlName="unit" placeholder="g, ml, etc">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Quantity String</mat-label>
+              <input matInput formControlName="quantityString" placeholder="e.g., 1 cup">
+            </mat-form-field>
+            <button mat-icon-button color="warn" type="button" (click)="removeIngredient(i)" *ngIf="ingredients.length > 1">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+        <button mat-button type="button" (click)="addIngredient()">
+          <mat-icon>add</mat-icon> Add Ingredient
+        </button>
+      </div>
+
+      <div class="form-row two-columns">
+        <mat-form-field appearance="outline">
+          <mat-label>Servings</mat-label>
+          <input matInput type="number" formControlName="servings">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Meal Type</mat-label>
+          <mat-select formControlName="mealType">
+            <mat-option *ngFor="let type of mealTypes" [value]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row two-columns">
+        <mat-form-field appearance="outline">
+          <mat-label>Calories</mat-label>
+          <input matInput type="number" formControlName="calories">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Time to Cook (minutes)</mat-label>
+          <input matInput type="number" formControlName="timeToCook">
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-checkbox formControlName="fullMeal">Full Meal</mat-checkbox>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Comments</mat-label>
+          <textarea matInput formControlName="comments" rows="3"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Source</mat-label>
+          <input matInput formControlName="source">
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-checkbox formControlName="tried">Recipe Tried</mat-checkbox>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Save Recipe</button>
+      <button mat-button type="button" (click)="onDiscard()">Discard</button>
+    </mat-card-actions>
+  </mat-card>
+</form> -->

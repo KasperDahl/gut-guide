@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+@use 'variables' as vars;
+
+// Define your typography
+$gut-guide-typography: mat.define-typography-config(
+  $font-family: 'Roboto, "Helvetica Neue", sans-serif',
+  $headline-1:
+    mat.define-typography-level(96px, 96px, 300, $letter-spacing: -1.5px),
+  $headline-2:
+    mat.define-typography-level(60px, 60px, 300, $letter-spacing: -0.5px),
+  // Add more levels as needed
+);
+
+// You can also define general typography styles here
+body {
+  font-family: mat.font-family($gut-guide-typography);
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Add any other global typography classes you need

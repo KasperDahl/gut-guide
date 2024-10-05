@@ -1,0 +1,20 @@
+@use '@angular/material' as mat;
+
+@mixin custom-button($theme) {
+  $primary: map-get($theme, primary);
+
+  .custom-button {
+    @include mat.button-typography($theme);
+    background-color: mat.get-color-from-palette($primary);
+    color: mat.get-color-from-palette($primary, 'default-contrast');
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: mat.get-color-from-palette($primary, 700);
+    }
+  }
+}

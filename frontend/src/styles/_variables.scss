@@ -1,0 +1,30 @@
+@use '@angular/material' as mat;
+
+// Define your color palettes
+$gut-guide-primary: mat.define-palette(mat.$blue-palette);
+$gut-guide-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$gut-guide-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object
+$gut-guide-theme: mat.define-light-theme((
+  color: (
+    primary: $gut-guide-primary,
+    accent: $gut-guide-accent,
+    warn: $gut-guide-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// You can also define other variables here
+$spacing-unit: 8px;
+$container-width: 1200px;
+$border-radius: 4px;
+
+// Breakpoints
+$breakpoints: (
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  xlarge: 1200px
+);

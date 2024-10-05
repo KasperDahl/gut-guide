@@ -1,0 +1,30 @@
+@use 'variables' as vars;
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  max-width: vars.$container-width;
+  margin: 0 auto;
+  padding: 0 vars.$spacing-unit;
+}
+
+// Add any other global layout classes
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+// You might want to add some responsive mixins
+@mixin respond-to($breakpoint) {
+  @if map-has-key(vars.$breakpoints, $breakpoint) {
+    @media (min-width: map-get(vars.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}

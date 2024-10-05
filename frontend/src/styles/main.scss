@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+@use 'variables' as vars;
+@use 'typography' as type;
+@use 'buttons' as buttons;
+@use 'layout' as layout;
+
+// Include Angular Material core styles
+@include mat.core();
+
+// Include theme styles for Angular Material
+@include mat.all-component-themes(vars.$gut-guide-theme);
+
+// Include custom button styles
+@include buttons.custom-button(vars.$gut-guide-theme);
+
+// You can add any additional global styles here
