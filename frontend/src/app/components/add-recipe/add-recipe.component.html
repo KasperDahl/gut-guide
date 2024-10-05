@@ -1,0 +1,77 @@
+<form [formGroup]="recipeForm" (ngSubmit)="saveRecipe()">
+  <mat-form-field>
+    <mat-label>Recipe Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <div formArrayName="instructions">
+    <div *ngFor="let instruction of instructions.controls; let i = index">
+      <mat-form-field>
+        <mat-label>Instruction {{i + 1}}</mat-label>
+        <input matInput [formControlName]="i">
+      </mat-form-field>
+    </div>
+    <button mat-raised-button type="button" (click)="addInstruction()">Add Instruction</button>
+  </div>
+
+  <div formArrayName="ingredients">
+    <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
+      <mat-form-field>
+        <mat-label>Ingredient Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Quantity</mat-label>
+        <input matInput formControlName="quantity">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Unit</mat-label>
+        <mat-select formControlName="unit">
+          <mat-option value="g">g</mat-option>
+          <mat-option value="skiver">skiver</mat-option>
+          <mat-option value="bundt">bundt</mat-option>
+          <mat-option value="knivspids">knivspids</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button type="button" (click)="addIngredient()">Add Ingredient</button>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Servings</mat-label>
+    <input matInput formControlName="servings">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Meal Type</mat-label>
+    <mat-select formControlName="mealType">
+      <mat-option value="Hovedret">Hovedret</mat-option>
+      <mat-option value="Forret">Forret</mat-option>
+      <mat-option value="Dessert">Dessert</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Full Meal</mat-label>
+    <mat-select formControlName="fullMeal">
+      <mat-option value="true">Yes</mat-option>
+      <mat-option value="false">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tried</mat-label>
+    <mat-select formControlName="tried">
+      <mat-option value="true">Yes</mat-option>
+      <mat-option value="false">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Comments</mat-label>
+    <textarea matInput formControlName="comments"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">Save</button>
+  <button mat-raised-button type="button" (click)="discardRecipe()">Discard</button>
+</form>
