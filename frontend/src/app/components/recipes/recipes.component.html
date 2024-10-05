@@ -1,6 +1,8 @@
 <div class="header">
   <h1>Here you can find all recipes</h1>
-  <button class="custom-button">Add Recipe</button>
+  <button class="custom-button" [routerLink]="['/add-recipe']">
+    Add Recipe
+  </button>
 </div>
 
 <mat-grid-list cols="3" rowHeight="1:1.2">
@@ -9,7 +11,9 @@
       <mat-card class="recipe-card">
         <mat-card-header>
           <mat-card-title-group>
-            <mat-card-title class="recipe-title">{{ recipe.name }}</mat-card-title>
+            <mat-card-title class="recipe-title">{{
+              recipe.name
+            }}</mat-card-title>
             <mat-card-subtitle>{{ recipe.mealType }}</mat-card-subtitle>
           </mat-card-title-group>
         </mat-card-header>
@@ -19,7 +23,9 @@
           alt="{{ recipe.name }}"
         />
         <mat-card-footer>
-          <p class="cook-time"><mat-icon>timer</mat-icon> {{ recipe.timeToCook }} minutes</p>
+          <p class="cook-time">
+            <mat-icon>timer</mat-icon> {{ recipe.timeToCook }} minutes
+          </p>
         </mat-card-footer>
       </mat-card>
     </a>
