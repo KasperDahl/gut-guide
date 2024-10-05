@@ -54,3 +54,35 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+// Define a custom button style using the theme's primary color
+// .custom-button {
+//   @include mat.button-typography($gut-guide-theme);
+//   background-color: mat.get-color-from-palette($gut-guide-primary);
+//   color: mat.get-color-from-palette($gut-guide-primary, 'default-contrast');
+//   padding: 8px 16px;
+//   border: none;
+//   border-radius: 4px;
+//   text-transform: uppercase;
+//   cursor: pointer;
+//   transition: background-color 0.3s;
+
+//   &:hover {
+//     background-color: mat.get-color-from-palette($gut-guide-primary, 700);
+//   }
+// }
+// $gut-guide-button: mat.button-theme(
+//     @include mat.button-typography($gut-guide-theme);
+//     background-color: mat.get-color-from-palette($gut-guide-primary);
+//     color: mat.get-color-from-palette($gut-guide-primary, 'default-contrast');
+//     padding: 8px 16px;
+//     border: none;
+//     border-radius: 4px;
+//     text-transform: uppercase;
+//     cursor: pointer;
+//     transition: background-color 0.3s;
+  
+//     &:hover {
+//       background-color: mat.get-color-from-palette($gut-guide-primary, 700);
+//     }
+// );
