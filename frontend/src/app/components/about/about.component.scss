@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+@use '../../../styles' as *;
+
+.about-container {
+  padding: 20px;
+  background-color: mat.get-color-from-palette($gut-guide-primary, 50);
+  color: mat.get-color-from-palette($gut-guide-primary, 900);
+}
+
+h1, h2 {
+  color: mat.get-color-from-palette($gut-guide-primary, 700);
+}
+
+a {
+  color: mat.get-color-from-palette($gut-guide-accent, 500);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
