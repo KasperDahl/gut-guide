@@ -1,0 +1,103 @@
+@use '@angular/material' as mat;
+@use '../../../styles' as *;
+
+h1 {
+  color: mat.get-color-from-palette($gut-guide-primary, 700);
+  padding-left: 10px;
+}
+
+.custom-button {
+  @include mat.button-typography($gut-guide-theme);
+  background-color: mat.get-color-from-palette($gut-guide-primary);
+  color: mat.get-color-from-palette($gut-guide-primary, 'default-contrast');
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: mat.get-color-from-palette($gut-guide-primary, 700);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-link {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.recipe-card {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: mat.get-color-from-palette($gut-guide-primary);
+  color: rgb(255, 166, 0);
+}
+
+mat-card-header {
+  flex-shrink: 0;
+  padding-bottom: 8px;
+}
+
+mat-card-title-group {
+  margin-bottom: 0;
+}
+
+.recipe-title {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  max-height: 2.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+}
+
+img[mat-card-image] {
+  margin-bottom: 0;
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+mat-card-footer {
+  padding: 8px 16px;
+  margin: 0;
+}
+
+.cook-time {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+mat-icon {
+  margin-right: 5px;
+  font-size: 1rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+@media (max-width: 960px) {
+  .recipe-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .recipe-title {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,33 @@
+<div class="header">
+  <h1>Here you can find all recipes</h1>
+  <button class="custom-button" [routerLink]="['/add-recipe']">
+    Add Recipe
+  </button>
+</div>
+
+<mat-grid-list cols="3" rowHeight="1:1.2">
+  <mat-grid-tile *ngFor="let recipe of recipes$ | async">
+    <a [routerLink]="['/recipe', recipe.name]" class="recipe-link">
+      <mat-card class="recipe-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title class="recipe-title">{{
+              recipe.name
+            }}</mat-card-title>
+            <mat-card-subtitle>{{ recipe.mealType }}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="assets/placeholder-image.jpg"
+          alt="{{ recipe.name }}"
+        />
+        <mat-card-footer>
+          <p class="cook-time">
+            <mat-icon>timer</mat-icon> {{ recipe.timeToCook }} minutes
+          </p>
+        </mat-card-footer>
+      </mat-card>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,35 @@
+  <div *ngIf="recipe$ | async as recipe" class="recipe-detail">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ recipe.name }}</mat-card-title>
+        <mat-card-subtitle>{{ recipe.mealType }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="image-info-container">
+          <div class="image-container">
+            <img mat-card-image src="assets/placeholder-image.jpg" alt="{{ recipe.name }}">
+            <div class="time-servings">
+              <p><mat-icon>timer</mat-icon> {{ recipe.timeToCook }} minutes</p>
+              <p><mat-icon>people</mat-icon> Servings: {{ recipe.servings }}</p>
+            </div>
+          </div>
+          <div class="ingredients-container">
+            <h3>Ingredients</h3>
+            <mat-list>
+              <mat-list-item *ngFor="let ingredient of recipe.ingredients">
+                {{ ingredient.quantityString }} {{ ingredient.name }}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+  
+        <h3>Instructions</h3>
+        <ol>
+          <li *ngFor="let instruction of recipe.instructions">{{ instruction }}</li>
+        </ol>
+  
+        <p *ngIf="recipe.comments"><strong>Comments:</strong> {{ recipe.comments }}</p>
+        <p *ngIf="recipe.source"><strong>Source:</strong> {{ recipe.source }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>

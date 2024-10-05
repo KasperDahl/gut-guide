@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "instructions": [
+    ""
+  ],
+  "ingredients": [
+    {
+      "name": "",
+      "quantity": ,
+      "unit": "",
+      "quantityString": ""
+    }
+  ],
+  "servings": ,
+  "mealType": ,
+  "fullMeal": ,
+  "calories": ,
+  "timeToCook": ,
+  "comments": "",
+  "source": "",
+  "tried": 
+}
