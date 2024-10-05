@@ -1,4 +1,8 @@
-<h1>Here you can find all recipes</h1>
+<div class="header">
+  <h1>Here you can find all recipes</h1>
+  <button class="custom-button">Add Recipe</button>
+</div>
+
 <mat-grid-list cols="3" rowHeight="1:1.2">
   <mat-grid-tile *ngFor="let recipe of recipes$ | async">
     <a [routerLink]="['/recipe', recipe.name]" class="recipe-link">

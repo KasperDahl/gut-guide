@@ -1,6 +1,33 @@
 @use '@angular/material' as mat;
 @use '../../../styles' as *;
 
+h1 {
+  color: mat.get-color-from-palette($gut-guide-primary, 700);
+  padding-left: 10px;
+}
+
+.custom-button {
+  @include mat.button-typography($gut-guide-theme);
+  background-color: mat.get-color-from-palette($gut-guide-primary);
+  color: mat.get-color-from-palette($gut-guide-primary, 'default-contrast');
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: mat.get-color-from-palette($gut-guide-primary, 700);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .recipe-link {
   text-decoration: none;
   display: block;
@@ -34,7 +61,7 @@ mat-card-title-group {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  
+
   -webkit-box-orient: vertical;
 }
 
