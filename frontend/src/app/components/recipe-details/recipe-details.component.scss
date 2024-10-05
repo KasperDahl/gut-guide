@@ -1,0 +1,48 @@
+.image-info-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image-container {
+    flex: 2;
+    margin-right: 20px;
+  }
+  
+  .ingredients-container {
+    flex: 1;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .time-servings {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }
+  
+  .time-servings p {
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .image-info-container {
+      flex-direction: column;
+    }
+  
+    .image-container, .ingredients-container {
+      flex: unset;
+      margin-right: 0;
+    }
+  
+    .time-servings {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  
+    .time-servings p {
+      margin-right: 20px;
+    }
+  }
