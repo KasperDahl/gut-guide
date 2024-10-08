@@ -1,0 +1,35 @@
+<p>create-instructions works!</p>
+<!-- <form [formGroup]="instructionsForm">
+    <div formArrayName="steps">
+      <div *ngFor="let step of steps.controls; let i = index" class="step-container mat-elevation-z1">
+        <div [formGroupName]="i" class="step-content">
+          <mat-form-field *ngIf="!step.get('isReadonly')?.value" appearance="outline" class="step-input">
+            <mat-label>Step {{i + 1}}</mat-label>
+            <input matInput formControlName="instruction" placeholder="Enter instruction">
+          </mat-form-field>
+          
+          <p *ngIf="step.get('isReadonly')?.value" class="readonly-text">
+            <strong>Step {{i + 1}}:</strong> {{step.get('instruction')?.value}}
+          </p>
+
+          <div class="button-container">
+            <button mat-icon-button *ngIf="step.get('isReadonly')?.value" 
+                    (click)="editStep(i)" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+            
+            <button mat-icon-button (click)="addStepAfter(i)" color="primary">
+              <mat-icon>add_circle</mat-icon>
+            </button>
+            
+            <button mat-icon-button *ngIf="steps.length > 1" 
+                    (click)="deleteStep(i)" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form> -->
+
+

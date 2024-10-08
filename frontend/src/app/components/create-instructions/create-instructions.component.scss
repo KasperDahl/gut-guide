@@ -1,0 +1,22 @@
+.step-container {
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 4px;
+  }
+  .step-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .step-input {
+    flex-grow: 1;
+  }
+  .readonly-text {
+    flex-grow: 1;
+    margin: 0;
+    padding: 8px 0;
+  }
+  .button-container {
+    display: flex;
+    gap: 8px;
+  }
