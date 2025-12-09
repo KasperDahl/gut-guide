@@ -2,7 +2,7 @@
 @use 'index' as *;
 
 h1 {
-  color: mat.get-color-from-palette($gut-guide-primary, 700);
+  color: mat.m2-get-color-from-palette($gut-guide-primary, 700);
   padding-left: 10px;
 }
 
@@ -25,7 +25,7 @@ h1 {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: mat.get-color-from-palette($gut-guide-primary);
+  background-color: mat.m2-get-color-from-palette($gut-guide-primary);
   color: rgb(255, 166, 0);
 }
 
