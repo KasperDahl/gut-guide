@@ -15,20 +15,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MaterialCardModules } from '../../modules/material-card-modules';
 
 @Component({
-  selector: 'app-add-recipe',
-  standalone: true,
-  imports: [
-    ...MaterialCardModules,
-    CommonModule,
-    ReactiveFormsModule,
-    MatFormField,
-    MatLabel,
-    MatOption,
-    MatSelect,
-    MatInputModule,
-  ],
-  templateUrl: './add-recipe.component.html',
-  styleUrls: ['./add-recipe.component.scss'],
+    selector: 'app-add-recipe',
+    imports: [
+        ...MaterialCardModules,
+        CommonModule,
+        ReactiveFormsModule,
+        MatFormField,
+        MatLabel,
+        MatOption,
+        MatSelect,
+        MatInputModule,
+    ],
+    templateUrl: './add-recipe.component.html',
+    styleUrls: ['./add-recipe.component.scss']
 })
 export class AddRecipeComponent {
   recipeForm: FormGroup;

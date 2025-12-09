@@ -5,7 +5,8 @@
 @use 'layout' as layout;
 
 // Include Angular Material core styles
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 // Include theme styles for Angular Material
 @include mat.all-component-themes(vars.$gut-guide-theme);

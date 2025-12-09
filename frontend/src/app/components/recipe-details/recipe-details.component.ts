@@ -9,11 +9,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-recipe-details',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatListModule, MatIconModule],
-  templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.scss']
+    selector: 'app-recipe-details',
+    imports: [CommonModule, MatCardModule, MatListModule, MatIconModule],
+    templateUrl: './recipe-details.component.html',
+    styleUrls: ['./recipe-details.component.scss']
 })
 export class RecipeDetailsComponent implements OnInit {
   recipe$: Observable<Recipe> | undefined;

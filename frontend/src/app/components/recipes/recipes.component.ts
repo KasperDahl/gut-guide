@@ -9,11 +9,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-recipes',
-  standalone: true,
-  imports: [CommonModule, MatCardModule, MatGridListModule, MatIconModule, RouterModule],
-  templateUrl: './recipes.component.html',
-  styleUrl: './recipes.component.scss',
+    selector: 'app-recipes',
+    imports: [CommonModule, MatCardModule, MatGridListModule, MatIconModule, RouterModule],
+    templateUrl: './recipes.component.html',
+    styleUrl: './recipes.component.scss'
 })
 export class RecipesComponent {
   recipes$: Observable<Recipe[]>;

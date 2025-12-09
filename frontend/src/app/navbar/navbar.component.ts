@@ -4,15 +4,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [
-    RouterModule,
-    MatToolbarModule,
-    MatButtonModule,
+    selector: 'app-navbar',
+    imports: [
+        RouterModule,
+        MatToolbarModule,
+        MatButtonModule,
     ],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
 
