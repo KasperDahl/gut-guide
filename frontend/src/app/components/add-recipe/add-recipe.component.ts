@@ -16,6 +16,7 @@ import { MaterialCardModules } from '../../modules/material-card-modules';
 
 @Component({
     selector: 'app-add-recipe',
+    standalone: true,
     imports: [
     ...MaterialCardModules,
     ReactiveFormsModule,

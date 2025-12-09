@@ -10,12 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-recipe-details',
+    standalone: true,
     imports: [CommonModule, MatCardModule, MatListModule, MatIconModule],
     templateUrl: './recipe-details.component.html',
     styleUrls: ['./recipe-details.component.scss']
 })
 export class RecipeDetailsComponent implements OnInit {
-  recipe$: Observable<Recipe> | undefined;
+  recipe$!: Observable<Recipe>;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +28,6 @@ export class RecipeDetailsComponent implements OnInit {
     if (recipeName) {
       this.recipe$ = this.recipeService.getRecipeByName(recipeName);
     } else {
-      // Handle the case where recipeName is null
       console.error('Recipe name is null');
     }
   }

@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-recipes',
+    standalone: true,
     imports: [CommonModule, MatCardModule, MatGridListModule, MatIconModule, RouterModule],
     templateUrl: './recipes.component.html',
     styleUrl: './recipes.component.scss'

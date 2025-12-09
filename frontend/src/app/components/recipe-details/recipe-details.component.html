@@ -1,43 +1,55 @@
-@if (recipe$ | async; as recipe) {
-  <div class="recipe-detail">
+<ng-container *ngIf="recipe$ | async as recipeValue">
+  <div class="recipe-detail" [ngSwitch]="true" *ngIf="recipeValue">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>{{ recipe.name }}</mat-card-title>
-        <mat-card-subtitle>{{ recipe.mealType }}</mat-card-subtitle>
+        <mat-card-title [textContent]="recipeValue['name']"></mat-card-title>
+        <mat-card-subtitle
+          [textContent]="recipeValue['mealType']"
+        ></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <div class="image-info-container">
           <div class="image-container">
-            <img mat-card-image src="assets/placeholder-image.jpg" alt="{{ recipe.name }}">
+            <img
+              mat-card-image
+              src="assets/placeholder-image.jpg"
+              [alt]="recipeValue['name']"
+            />
             <div class="time-servings">
-              <p><mat-icon>timer</mat-icon> {{ recipe.timeToCook }} minutes</p>
-              <p><mat-icon>people</mat-icon> Servings: {{ recipe.servings }}</p>
+              <p>
+                <mat-icon>timer</mat-icon>
+                {{ recipeValue['timeToCook'] }} minutes
+              </p>
+              <p>
+                <mat-icon>people</mat-icon> Servings:
+                {{ recipeValue['servings'] }}
+              </p>
             </div>
           </div>
           <div class="ingredients-container">
             <h3>Ingredients</h3>
             <mat-list>
-              @for (ingredient of recipe.ingredients; track ingredient) {
-                <mat-list-item>
-                  {{ ingredient.quantityString }} {{ ingredient.name }}
-                </mat-list-item>
-              }
+              <mat-list-item
+                *ngFor="let ingredient of recipeValue['ingredients']"
+              >
+                {{ ingredient['quantityString'] }} {{ ingredient['name'] }}
+              </mat-list-item>
             </mat-list>
           </div>
         </div>
         <h3>Instructions</h3>
         <ol>
-          @for (instruction of recipe.instructions; track instruction) {
-            <li>{{ instruction }}</li>
-          }
+          <li *ngFor="let instruction of recipeValue['instructions']">
+            {{ instruction }}
+          </li>
         </ol>
-        @if (recipe.comments) {
-          <p><strong>Comments:</strong> {{ recipe.comments }}</p>
-        }
-        @if (recipe.source) {
-          <p><strong>Source:</strong> {{ recipe.source }}</p>
-        }
+        <p *ngIf="recipeValue['comments']">
+          <strong>Comments:</strong> {{ recipeValue['comments'] }}
+        </p>
+        <p *ngIf="recipeValue['source']">
+          <strong>Source:</strong> {{ recipeValue['source'] }}
+        </p>
       </mat-card-content>
     </mat-card>
   </div>
-}
+</ng-container>
