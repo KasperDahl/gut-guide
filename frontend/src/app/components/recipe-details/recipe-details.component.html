@@ -1,4 +1,5 @@
-  <div *ngIf="recipe$ | async as recipe" class="recipe-detail">
+@if (recipe$ | async; as recipe) {
+  <div class="recipe-detail">
     <mat-card>
       <mat-card-header>
         <mat-card-title>{{ recipe.name }}</mat-card-title>
@@ -16,20 +17,27 @@
           <div class="ingredients-container">
             <h3>Ingredients</h3>
             <mat-list>
-              <mat-list-item *ngFor="let ingredient of recipe.ingredients">
-                {{ ingredient.quantityString }} {{ ingredient.name }}
-              </mat-list-item>
+              @for (ingredient of recipe.ingredients; track ingredient) {
+                <mat-list-item>
+                  {{ ingredient.quantityString }} {{ ingredient.name }}
+                </mat-list-item>
+              }
             </mat-list>
           </div>
         </div>
-  
         <h3>Instructions</h3>
         <ol>
-          <li *ngFor="let instruction of recipe.instructions">{{ instruction }}</li>
+          @for (instruction of recipe.instructions; track instruction) {
+            <li>{{ instruction }}</li>
+          }
         </ol>
-  
-        <p *ngIf="recipe.comments"><strong>Comments:</strong> {{ recipe.comments }}</p>
-        <p *ngIf="recipe.source"><strong>Source:</strong> {{ recipe.source }}</p>
+        @if (recipe.comments) {
+          <p><strong>Comments:</strong> {{ recipe.comments }}</p>
+        }
+        @if (recipe.source) {
+          <p><strong>Source:</strong> {{ recipe.source }}</p>
+        }
       </mat-card-content>
     </mat-card>
   </div>
+}

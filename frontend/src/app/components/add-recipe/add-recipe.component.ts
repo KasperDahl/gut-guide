@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import {
   FormBuilder,
@@ -17,15 +17,14 @@ import { MaterialCardModules } from '../../modules/material-card-modules';
 @Component({
     selector: 'app-add-recipe',
     imports: [
-        ...MaterialCardModules,
-        CommonModule,
-        ReactiveFormsModule,
-        MatFormField,
-        MatLabel,
-        MatOption,
-        MatSelect,
-        MatInputModule,
-    ],
+    ...MaterialCardModules,
+    ReactiveFormsModule,
+    MatFormField,
+    MatLabel,
+    MatOption,
+    MatSelect,
+    MatInputModule
+],
     templateUrl: './add-recipe.component.html',
     styleUrls: ['./add-recipe.component.scss']
 })
