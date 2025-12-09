@@ -1,5 +1,5 @@
 # Use an official OpenJDK 17 image as the base image
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:21
 
 # Set the working directory in the container
 WORKDIR /app
@@ -21,7 +21,7 @@ RUN ./gradlew build -x test
 EXPOSE 8080
 
 # Run the Spring Boot application
-ENTRYPOINT [ "java", "-jar", "build/libs/backend-0.0.1-SNAPSHOT.jar" ]
+ENTRYPOINT [ "java", "-jar", "build/libs/backend-0.0.1.jar" ]
 
 
 
