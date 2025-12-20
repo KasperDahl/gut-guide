@@ -2,7 +2,6 @@ package com.kasper.gutguide.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +24,9 @@ public class Recipe {
     @OrderColumn(name = "instruction_order")
     private List<String> instructions = new ArrayList<>();
     
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    // One-way relationship: Recipe owns Ingredients
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "recipe_id", nullable = false)
     private List<Ingredient> ingredients = new ArrayList<>();
     
     @Min(1)
@@ -46,7 +46,7 @@ public class Recipe {
     
     @Min(0)
     @Column(name = "time_to_cook", nullable = false)
-    private Integer timeToCook; // in minutes
+    private Integer timeToCook;
     
     @Column(columnDefinition = "TEXT")
     private String comments;
@@ -63,7 +63,6 @@ public class Recipe {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
-    // JPA lifecycle callbacks
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
@@ -87,15 +86,9 @@ public class Recipe {
         this.timeToCook = timeToCook;
     }
     
-    // Helper methods for bidirectional relationship
+    // Helper method to add ingredient
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
-        ingredient.setRecipe(this);
-    }
-    
-    public void removeIngredient(Ingredient ingredient) {
-        ingredients.remove(ingredient);
-        ingredient.setRecipe(null);
     }
     
     public void addInstruction(String instruction) {

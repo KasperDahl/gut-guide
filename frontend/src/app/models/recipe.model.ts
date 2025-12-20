@@ -8,8 +8,8 @@ export interface Recipe {
     fullMeal: boolean;
     calories: number;
     timeToCook: number;
-    comments: string;
-    source: string;
+    comments?: string;
+    source?: string;
     tried: boolean;
     createdAt?: Date;
     updatedAt?: Date;
@@ -20,5 +20,4 @@ export interface Recipe {
     name: string;
     quantity: number;
     unit: string;
-    quantityString: string;
   }

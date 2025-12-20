@@ -25,9 +25,9 @@ public class Ingredient {
     @Column(nullable = false, length = 50)
     private String unit;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "recipe_id", nullable = false)
-    private Recipe recipe;
+    // Foreign key still exists in database, but no Java object reference
+    @Column(name = "recipe_id", nullable = false, insertable = false, updatable = false)
+    private Long recipeId;
     
     // Constructors
     public Ingredient() {
@@ -72,12 +72,8 @@ public class Ingredient {
         this.unit = unit;
     }
     
-    public Recipe getRecipe() {
-        return recipe;
-    }
-    
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
+    public Long getRecipeId() {
+        return recipeId;
     }
     
     @Override
