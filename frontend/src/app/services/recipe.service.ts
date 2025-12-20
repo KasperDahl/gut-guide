@@ -8,8 +8,6 @@ import { Recipe } from '../models/recipe.model';
   providedIn: 'root',
 })
 export class RecipeService {
-  //   private recipesUrl = 'assets/recipes.json';
-  // private recipesUrl = 'assets/allRecipes.json';
   private baseUrl = 'http://localhost:8080/api/recipes';
 
   constructor(private http: HttpClient) {}
