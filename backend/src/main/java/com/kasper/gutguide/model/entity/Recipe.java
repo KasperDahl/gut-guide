@@ -2,11 +2,10 @@ package com.kasper.gutguide.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.kasper.gutguide.model.entity.Ingredient;
 
 @Entity
 @Table(name = "recipes")
@@ -26,8 +25,9 @@ public class Recipe {
     @OrderColumn(name = "instruction_order")
     private List<String> instructions = new ArrayList<>();
     
-    // @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
-    // private List<Ingredient> ingredients = new ArrayList<>();
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Ingredient> ingredients = new ArrayList<>();
     
     @Min(1)
     @Column(nullable = false)
@@ -87,16 +87,16 @@ public class Recipe {
         this.timeToCook = timeToCook;
     }
     
-    // // Helper methods for bidirectional relationship
-    // public void addIngredient(Ingredient ingredient) {
-    //     ingredients.add(ingredient);
-    //     ingredient.setRecipe(this);
-    // }
+    // Helper methods for bidirectional relationship
+    public void addIngredient(Ingredient ingredient) {
+        ingredients.add(ingredient);
+        ingredient.setRecipe(this);
+    }
     
-    // public void removeIngredient(Ingredient ingredient) {
-    //     ingredients.remove(ingredient);
-    //     ingredient.setRecipe(null);
-    // }
+    public void removeIngredient(Ingredient ingredient) {
+        ingredients.remove(ingredient);
+        ingredient.setRecipe(null);
+    }
     
     public void addInstruction(String instruction) {
         this.instructions.add(instruction);
@@ -127,13 +127,13 @@ public class Recipe {
         this.instructions = instructions;
     }
     
-    // public List<Ingredient> getIngredients() {
-    //     return ingredients;
-    // }
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
     
-    // public void setIngredients(List<Ingredient> ingredients) {
-    //     this.ingredients = ingredients;
-    // }
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
     
     public Integer getServings() {
         return servings;
@@ -213,5 +213,18 @@ public class Recipe {
     
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Recipe)) return false;
+        Recipe recipe = (Recipe) o;
+        return id != null && id.equals(recipe.id);
+    }
+    
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

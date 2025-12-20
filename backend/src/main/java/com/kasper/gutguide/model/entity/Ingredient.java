@@ -20,9 +20,14 @@ public class Ingredient {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal quantity;
     
-    @NotBlank
+    // @NotBlank
+    @NotNull
     @Column(nullable = false, length = 50)
     private String unit;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "recipe_id", nullable = false)
+    private Recipe recipe;
     
     // Constructors
     public Ingredient() {
@@ -67,11 +72,24 @@ public class Ingredient {
         this.unit = unit;
     }
     
+    public Recipe getRecipe() {
+        return recipe;
+    }
+    
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Ingredient)) return false;
         Ingredient that = (Ingredient) o;
         return id != null && id.equals(that.id);
+    }
+    
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }
