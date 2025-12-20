@@ -1,4 +1,4 @@
-package main.java.com.kasper.gutguide.model.entity;
+package com.kasper.gutguide.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.com.kasper.gutguide.model.entity.Ingredient;
+import com.kasper.gutguide.model.entity.Ingredient;
 
 @Entity
 @Table(name = "recipes")
@@ -26,8 +26,8 @@ public class Recipe {
     @OrderColumn(name = "instruction_order")
     private List<String> instructions = new ArrayList<>();
     
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ingredient> ingredients = new ArrayList<>();
+    // @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Ingredient> ingredients = new ArrayList<>();
     
     @Min(1)
     @Column(nullable = false)
@@ -127,13 +127,13 @@ public class Recipe {
         this.instructions = instructions;
     }
     
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
+    // public List<Ingredient> getIngredients() {
+    //     return ingredients;
+    // }
     
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
+    // public void setIngredients(List<Ingredient> ingredients) {
+    //     this.ingredients = ingredients;
+    // }
     
     public Integer getServings() {
         return servings;

@@ -1,4 +1,4 @@
-package main.java.com.kasper.gutguide.model.entity;
+package com.kasper.gutguide.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

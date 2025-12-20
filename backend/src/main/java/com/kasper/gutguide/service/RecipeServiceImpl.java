@@ -1,8 +1,8 @@
-package main.java.com.kasper.gutguide.service;
+package com.kasper.gutguide.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import main.java.com.kasper.gutguide.model.entity.Recipe;
+import com.kasper.gutguide.model.entity.Recipe;
 
 
 @Service
