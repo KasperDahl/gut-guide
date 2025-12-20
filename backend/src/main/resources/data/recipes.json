@@ -2,12 +2,12 @@
   {
     "name": "Koldhævede speltboller",
     "instructions": [
-      "1. Vej koldt vand og gær af i en skål, og rør gæren ud i vandet.",
-      "2. Tilsæt speltmel, havregryn og salt og rør det sammen. Dejen er lidt tynd, men sådan skal den være. Har du ikke grovvalsede havregryn, kan du sagtens anvende de finvalsede.",
-      "3. Dejen skal blot røres sammen med en grydeske - og ikke æltes yderligere.",
-      "4. Dæk til med husholdningsfilm og et rent viskestykke og stil skålen i køleskabet natten over. Eller i ca. 10 timer.",
-      "5. Om morgenen tages skålen med dejen ud af køleskabet, og og ovnen tændes på 250 grader varmluft. En bageplade beklædes med bagepapir, og med to spiseskeer laver du nu 12 boller på bagepladen. Pensl speltbollerne med lidt mælk.",
-      "6. Bag din koldlhævede speltboller i ca. 20 minutter, hvor varmen i ovnen skrues ned til 200 grader efter ca. 5 minutter - hvorefter bollerne altså bages færdige i yderligere 15 minutter. Bagetiden afhænger naturligvis af hvor meget din ovn præcist varmer, så hold øje med speltbollerne i ovnen."
+      "Vej koldt vand og gær af i en skål, og rør gæren ud i vandet.",
+      "Tilsæt speltmel, havregryn og salt og rør det sammen. Dejen er lidt tynd, men sådan skal den være. Har du ikke grovvalsede havregryn, kan du sagtens anvende de finvalsede.",
+      "Dejen skal blot røres sammen med en grydeske - og ikke æltes yderligere.",
+      "Dæk til med husholdningsfilm og et rent viskestykke og stil skålen i køleskabet natten over. Eller i ca. 10 timer.",
+      "Om morgenen tages skålen med dejen ud af køleskabet, og og ovnen tændes på 250 grader varmluft. En bageplade beklædes med bagepapir, og med to spiseskeer laver du nu 12 boller på bagepladen. Pensl speltbollerne med lidt mælk.",
+      "Bag din koldlhævede speltboller i ca. 20 minutter, hvor varmen i ovnen skrues ned til 200 grader efter ca. 5 minutter - hvorefter bollerne altså bages færdige i yderligere 15 minutter. Bagetiden afhænger naturligvis af hvor meget din ovn præcist varmer, så hold øje med speltbollerne i ovnen."
     ],
     "ingredients": [
       {
@@ -53,12 +53,12 @@
   {
     "name": "Kylling svøbt i lufttørret skinke",
     "instructions": [
-      "1. Skyl persillen, og fjern stilken.",
-      "2. Fordel kyllingekødet i 8 ens portioner.",
-      "3. På 1 skive skinke lægges persille og kyllingeinderfileter, krydr med friskkværnet peber.",
-      "4. Rul skinken sammen om persille og kylling.",
-      "5. De 8 ruller lægges i et smurt ovnfast fad.",
-      "6. Steges i ovnen ved 200 grader i 15 minutter."
+      "Skyl persillen, og fjern stilken.",
+      "Fordel kyllingekødet i 8 ens portioner.",
+      "På 1 skive skinke lægges persille og kyllingeinderfileter, krydr med friskkværnet peber.",
+      "Rul skinken sammen om persille og kylling.",
+      "De 8 ruller lægges i et smurt ovnfast fad.",
+      "Steges i ovnen ved 200 grader i 15 minutter."
     ],
     "ingredients": [
       {
@@ -94,6 +94,1343 @@
     "timeToCook": 15,
     "comments": "",
     "source": "",
+    "tried": false
+  },
+  {
+    "name": "Pasta med kødsauce",
+    "instructions": [
+      "Bacon svitses i en gryde, til det tager farve.",
+      "Tilsæt hakket oksekød, salt og friskkværnet peber.",
+      "De groftrevne gulerødder og porretoppe tilsættes, og der røres rundt.",
+      "Hakkede tomater, peberfrugt i tern og krydderier tilsættes.",
+      "Lad kødsaucen simre ved svag varme under låg i 1⁄2-1 time.",
+      "Pasta koges efter anvisning på pakken.",
+      "Server pasta med kødsauce og lidt reven parmesan og frisk basilikum."
+    ],
+    "ingredients": [
+      {
+        "name": "bacon",
+        "quantity": 75.0,
+        "unit": "g"
+      },
+      {
+        "name": "hakket oksekød",
+        "quantity": 400.0,
+        "unit": "g"
+      },
+      {
+        "name": "porretoppe",
+        "quantity": 100.0,
+        "unit": "g"
+      },
+      {
+        "name": "gulerødder",
+        "quantity": 3.0,
+        "unit": "stk"
+      },
+      {
+        "name": "rød peberfrugt",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "hakkede tomater",
+        "quantity": 2.0,
+        "unit": "dåse"
+      },
+      {
+        "name": "tørret timian",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "tørret basilikum",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "tørret oregano",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "salt og peber",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "pasta",
+        "quantity": 300.0,
+        "unit": "g"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 60,
+    "comments": "Porretoppe kan udskiftes med top fra forårsløg. Serveres med friskrevet parmesanost og frisk, hakket basilikum",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Kødboller i tomatsauce",
+    "instructions": [
+      "Kødboller:",
+      "Persille hakkes, og parmesanosten rives.",
+      "Alle ingredienser til kødbollerne røres sammen.",
+      "Lad farsen hvile, mens saucen tilberedes.",
+      "Når saucen er lavet, skal kødbollerne formes valnøddestore. Der bliver ca. 10 stk.",
+      "Kødbollerne vendes i parmesanost eller majsmel og steges i smør.",
+      "Kødbollerne skal vendes tit for at få en jævn stegeskorpe.",
+      "Kødbollerne serveres sammen med tomatsaucen og glutenfri pasta.",
+      "Tomatsauce:",
+      "Peberfrugt vaskes, hakkes i mindre stykker og svitses i olie.",
+      "Friske krydderurter hakkes fint.",
+      "Salt, peber og krydderurter og flåede tomater tilsættes.",
+      "Saucen koger 3-4 minutter og smages til."
+    ],
+    "ingredients": [
+      {
+        "name": "hakket kalvekød",
+        "quantity": 400.0,
+        "unit": "g"
+      },
+      {
+        "name": "æg",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "persille",
+        "quantity": 1.0,
+        "unit": "dl"
+      },
+      {
+        "name": "parmesanost",
+        "quantity": 4.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "majs- eller speltmel",
+        "quantity": 4.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "minimælk",
+        "quantity": 4.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "salt",
+        "quantity": 2.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "peber",
+        "quantity": 2.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "parmesanost",
+        "quantity": 4.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "smør til stegning",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "rød peberfrugt",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "olie",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "hakkede tomater",
+        "quantity": 1.0,
+        "unit": "dåse"
+      },
+      {
+        "name": "friske krydderurter",
+        "quantity": 0.0,
+        "unit": ""
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 70,
+    "comments": "Der kan bruges majsmel i stedet for parmesanost til panering. Denne ret kan deles op i kødboller og sauce. Friske krydderurter kan eksempelvis være basilikum og persille. Se side 137-139 i LFD2 for mere information.",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Chili Con Carne med Mørk Chokolade",
+    "instructions": [
+      "Kog ris efter anvisning på pakken.",
+      "Snit de grønne løgtoppe samt chili fint. Skær gulerødder i tern og peberfrugt i strimler.",
+      "Svits løgtoppe og chili med hvidløgsolien ved høj varme i en gryde eller dyb pande.",
+      "Kom oksekødet ved, og brun det.",
+      "Tilsæt hakkede tomater, bouillon, kikærter, gulerødder og peberfrugter.",
+      "Tilsæt spidskommen samt lidt salt og peber.",
+      "Lad retten simre i minimum 1/2 time, men gerne et par timer.",
+      "Smag til med salt, peber og eventuelt mere spidskommen.",
+      "Tag gryden af varmen, tilsæt revet mørk chokolade, og rør rundt.",
+      "Server med kogte ris, creme fraiche og eventuelt en sprød grøn salat."
+    ],
+    "ingredients": [
+      {
+        "name": "hvidløgsolie",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "frisk chili",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 1.0,
+        "unit": "bundt"
+      },
+      {
+        "name": "hakket oksekød",
+        "quantity": 400.0,
+        "unit": "g"
+      },
+      {
+        "name": "kikærter",
+        "quantity": 160.0,
+        "unit": "g"
+      },
+      {
+        "name": "gulerødder",
+        "quantity": 300.0,
+        "unit": "g"
+      },
+      {
+        "name": "hakkede tomater",
+        "quantity": 1.0,
+        "unit": "dåse"
+      },
+      {
+        "name": "rød peberfrugt",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "salt og peber",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "spidskommen",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "bouillon",
+        "quantity": 2.0,
+        "unit": "dl"
+      },
+      {
+        "name": "mørk chokolade",
+        "quantity": 25.0,
+        "unit": "g"
+      },
+      {
+        "name": "ris",
+        "quantity": 2.5,
+        "unit": "dl"
+      },
+      {
+        "name": "creme fraiche",
+        "quantity": 2.0,
+        "unit": "dl"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": false,
+    "calories": 0,
+    "timeToCook": 90,
+    "comments": "OBS! Retten skal simre i minimum 1/2 time, men gerne et par timer. Brug gerne rød frisk chili. Sorte bønner kan være et alternativ til kikærter. Gerne brune ris. \nTIPS: Ris kan erstattes med low FODMAP brød, majstortillachips eller dampede grøntsager. Du bør være opmærksom på, at både chili, kikærter og hakket tomat er begrænsede fødevarer, og du bør derfor holde igen med mængden af andre begrænsede fødevarer i dette måltid.",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Boller i Karry",
+    "instructions": [
+      "Først forberedes kødbollefarsen. Kom de grønne løgtoppe i en skål, og blend dem til en grøn masse. Rør hakkekød sejt med 1 tsk. salt. Rør kød, de blendede forårsløg, æg og havregryn sammen. Sæt farsen på køl.",
+      "Skræl gulerødder og skær dem i mindre stykker. Hak grønne løgtoppe, squash og hvidkål groft.",
+      "Svits alle grøntsagerne i en opvarmet gryde med olie, samt karry og gurkemeje. Tilsæt 5 dl bouillon og lad grøntsagerne simre i ca. 10-15 min. Blend herefter grøntsagerne med en stavblender eller almindelig blender. Tilføj madlavningsfløde.",
+      "Form kødbollerne med en ske, og kom dem direkte ned i grøntsagssovsen. Lad dem simre i 10-15 minutter.",
+      "Kog imens ris efter anvisning på pakken.",
+      "Smag til med salt, peber og eventuelt mere karry. Server med ris og friske krydderurter efter smag."
+    ],
+    "ingredients": [
+      {
+        "name": "hakket svinekød eller kalv og flæsk (3-7 %)",
+        "quantity": 500.0,
+        "unit": "g"
+      },
+      {
+        "name": "æg",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "havregryn",
+        "quantity": 1.0,
+        "unit": "dl"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 0.5,
+        "unit": "bundt"
+      },
+      {
+        "name": "hvidløgsolie",
+        "quantity": 2.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 0.5,
+        "unit": "bundt"
+      },
+      {
+        "name": "gulerødder",
+        "quantity": 400.0,
+        "unit": "g"
+      },
+      {
+        "name": "hvidkål",
+        "quantity": 150.0,
+        "unit": "g"
+      },
+      {
+        "name": "squash",
+        "quantity": 150.0,
+        "unit": "g"
+      },
+      {
+        "name": "pink lady æble, lille",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "karry",
+        "quantity": 3.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "gurkemeje",
+        "quantity": 2.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "bouillon",
+        "quantity": 5.0,
+        "unit": "dl"
+      },
+      {
+        "name": "madlavningsfløde",
+        "quantity": 1.5,
+        "unit": "dl"
+      },
+      {
+        "name": "salt og peber",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "ris",
+        "quantity": 3.0,
+        "unit": "dl"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": false,
+    "calories": 0,
+    "timeToCook": 80,
+    "comments": "Gerne brune ris. \nTIP: Du kan anvende hakket kyllingekød i stedet for svinekød. Du kan også vælge andre low FODMAP grøntsager til sovsen. Halvdelen af det ene bundt forårsløg er til kødfarsen og den anden halvdel er til saucen.",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Glutenfri Wraps med Krydret Oksekød",
+    "instructions": [
+      "Bland majsmel, kartoffelmel og salt i en skål.",
+      "Tilsæt mælk imens du pisker dejen med en elpisker.",
+      "Tilsæt herefter æg og pisk dejen grundigt sammen.",
+      "Lad dejen hvile på køl i et kvarters tid, hvorefter du steger dine wraps som pandekager på en pande med lidt fedtstof. Der skal bruges ca. 1 dl dej pr pandekage.",
+      "Varm olien i en gryde, og tilsæt oksekødet.",
+      "Tilsæt stødt spidskommen, chili samt salt og peber.",
+      "Steg kødet, til det er gennemstegt i omkring 15 minutter.",
+      "Snit hvidkål fint, og riv gulerødderne groft.",
+      "Skær peberfrugt og agurk i strimler.",
+      "Alle grøntsager samles på et fad eller kommes i forskellige skåle.",
+      "Server dine fuldkornswraps med de snittede grøntsager, krydret oksekød, revet ost, yoghurt og eventuelt en portion tomatsalsa fra side 306 i Sund Mave."
+    ],
+    "ingredients": [
+      {
+        "name": "fuldkornsmajsmel",
+        "quantity": 4.0,
+        "unit": "dl"
+      },
+      {
+        "name": "kartoffelmel",
+        "quantity": 4.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "salt",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "minimælk",
+        "quantity": 4.0,
+        "unit": "dl"
+      },
+      {
+        "name": "æg",
+        "quantity": 5.0,
+        "unit": ""
+      },
+      {
+        "name": "fedtstof til stegning",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "hakket oksekød",
+        "quantity": 400.0,
+        "unit": "g"
+      },
+      {
+        "name": "hvidløgsolie",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "spidskommen",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "frisk chili",
+        "quantity": 0.5,
+        "unit": ""
+      },
+      {
+        "name": "hvidkål",
+        "quantity": 150.0,
+        "unit": "g"
+      },
+      {
+        "name": "gulerødder",
+        "quantity": 300.0,
+        "unit": "g"
+      },
+      {
+        "name": "rød peberfrugt",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "agurk",
+        "quantity": 0.5,
+        "unit": "stk"
+      },
+      {
+        "name": "revet mozzarella",
+        "quantity": 200.0,
+        "unit": "g"
+      },
+      {
+        "name": "skyr, creme fraiche eller yoghurt naturel",
+        "quantity": 3.0,
+        "unit": "dl"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 0,
+    "comments": "Frisk chili kan udskiftes med 1 tsk. tørrede chiliflager. TIP: Du kan vælge at fylde dine wraps med andet lækkert low FODMAP fyld. Prøv for eksempel en simpel version med gravad laks, rucola, friskost og low FODMAP pesto.",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Sød Kartoffel og Grønne Bønner Stir-Fry med Kylling",
+    "instructions": [
+      "Skær kyllingebryst i mundrette stykker, skræl og skær den søde kartoffel i små tern, og trim de grønne bønner.",
+      "Varm 1 spsk olivenolie i en stor pande over medium varme.",
+      "Tilsæt kyllingestykkerne til panden og krydr med salt, peber, spidskommen og paprika. Kog indtil kyllingen er brunet og gennemstegt. Når det er gjort, sættes det til side.",
+      "I den samme pande, tilsæt endnu en spsk olivenolie. Tilsæt sød kartoffel i tern og steg indtil de begynder at blive bløde.",
+      "Tilsæt de grønne bønner og porregrønt til panden og fortsæt med at stege indtil grøntsagerne er møre.",
+      "Returner den stegte kylling til panden og rør godt for at kombinere alle ingredienserne. Kog i et par minutter mere indtil alt er varmet igennem.",
+      "Smag til med krydderier. Pynt med persille hvis du bruger det.",
+      "Server varmt. Nyd din stir-fry!"
+    ],
+    "ingredients": [
+      {
+        "name": "kyllingebryst",
+        "quantity": 2.0,
+        "unit": "stk"
+      },
+      {
+        "name": "sød kartoffel",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "grønne bønner",
+        "quantity": 2.0,
+        "unit": "kopper"
+      },
+      {
+        "name": "olivenolie",
+        "quantity": 2.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "salt og peber",
+        "quantity": 1.0,
+        "unit": ""
+      },
+      {
+        "name": "spidskommen",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "paprika",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "porregrønt",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "frisk persille",
+        "quantity": 1.0,
+        "unit": "spsk"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 30,
+    "comments": "Frisk persille er valgfrit.",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Spinat og Agurke Salat",
+    "instructions": [
+      "Skyl og dræn den friske babyspinat og placer den i en stor salatskål.",
+      "Skær agurken og rød peber i tynde skiver.",
+      "Tilsæt de agurk og rød peberfrugt til skålen.",
+      "Drys den smuldrede fetaost over grøntsagerne.",
+      "I en lille skål, pisk olivenolie, frisk citronsaft, salt og peber sammen for at lave dressingen.",
+      "Hæld dressingen over salaten, og bland forsigtigt sammen."
+    ],
+    "ingredients": [
+      {
+        "name": "babyspinat",
+        "quantity": 120.0,
+        "unit": "gram"
+      },
+      {
+        "name": "agurk",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "rød peberfrugt",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "fetaost",
+        "quantity": 60.0,
+        "unit": "gram"
+      },
+      {
+        "name": "olivenolie",
+        "quantity": 2.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "citronsaft",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "salt og peber",
+        "quantity": 1.0,
+        "unit": ""
+      }
+    ],
+    "servings": 4,
+    "mealType": "Salat",
+    "fullMeal": false,
+    "calories": 0,
+    "timeToCook": 15,
+    "comments": "Kan serveres sammen med Sød Kartoffel og Grønne Bønner Stir-Fry med Kylling.",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Kylling Bacon Pasta Salat",
+    "instructions": [
+      "Kog pastaen: Når den er kogt, dræn og skyl pastaen under koldt vand og lad den køle ned.",
+      "Steg kyllingen: Mens pastaen koger, krydr kyllingebrysterne med salt, peber, oregano og timian. Varm en spiseskefuld olivenolie i en pande over medium varme. Tilsæt kyllingen og steg i ca. 5-7 minutter på hver side, eller indtil den er gennemstegt og ikke længere er pink i midten. Når det er stegt, fjern kyllingen fra panden, lad den hvile i et par minutter, og skær den derefter i mundrette stykker.",
+      "Steg baconen: I den samme pande, steg baconen indtil den er sprød. Når den er færdig, lad den køle på et papirhåndklæde, skær derefter i små stykker.",
+      "Forbered grøntsagerne: Skær rød peber, agurk og cherrytomater i mundrette stykker. Hvis du bruger oliven, skal de skæres i halve.",
+      "Saml salaten: I en stor skål, kombiner den afkølede pasta, stegt kylling, sprød bacon, hakket grøntsager, oliven og smuldret fetaost. Bland godt sammen.",
+      "Salat dressing: Lav en salatdressing af eks. hvidløgsolie og eddikke og hæld udover salaten, og bland salaten igen.",
+      "Afkøl og server: Du kan servere salaten med det samme, eller lad den køle i køleskabet i en time eller to for at lade smagene blande sig sammen. Det vil forblive velsmagende selv efter et par timer, så det er perfekt til at tage med på farten."
+    ],
+    "ingredients": [
+      {
+        "name": "kyllingebryst",
+        "quantity": 2.0,
+        "unit": "stk"
+      },
+      {
+        "name": "bacon",
+        "quantity": 100.0,
+        "unit": "gram"
+      },
+      {
+        "name": "pasta",
+        "quantity": 400.0,
+        "unit": "gram"
+      },
+      {
+        "name": "rød peberfrugt",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "agurk",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "cherrytomater",
+        "quantity": 10.0,
+        "unit": "stk"
+      },
+      {
+        "name": "oliven",
+        "quantity": 90.0,
+        "unit": "gram"
+      },
+      {
+        "name": "fetaost",
+        "quantity": 120.0,
+        "unit": "gram"
+      },
+      {
+        "name": "olivenolie",
+        "quantity": 2.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "salt og peber",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "oregano",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "timian",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "salatdressing",
+        "quantity": 0.5,
+        "unit": "kop"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 30,
+    "comments": "Husk at indtage denne ret i en passende portionsstørrelse for at holde sig inden for low FODMAP grænser, især vedrørende de anvendte grøntsager.",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Nøddebrød",
+    "instructions": [
+      "Tænd ovnen på 160 grader.",
+      "Hak valnødderne til mel i en food-processor eller minihakker.",
+      "Bland valnødderne sammen med resten af kernerne.",
+      "Pisk æggene.",
+      "Bland olien i æggene.",
+      "Tilsæt nu kerneblandingen med æg og olie og bland det godt sammen.",
+      "Hæld blandingen i en slip-let brødform eller beklæd en almindelig brødform med bagepapir og hæld dejen i.",
+      "Bag brødet midt i ovnen ved 160 grader i ca. 65 min.",
+      "Lad brødet afkøle i formen."
+    ],
+    "ingredients": [
+      {
+        "name": "valnødder",
+        "quantity": 150.0,
+        "unit": "g"
+      },
+      {
+        "name": "græskarkerner",
+        "quantity": 150.0,
+        "unit": "g"
+      },
+      {
+        "name": "solsikkefrø",
+        "quantity": 100.0,
+        "unit": "g"
+      },
+      {
+        "name": "sesamfrø",
+        "quantity": 130.0,
+        "unit": "g"
+      },
+      {
+        "name": "hørfrø",
+        "quantity": 100.0,
+        "unit": "g"
+      },
+      {
+        "name": "rapsolie",
+        "quantity": 1.0,
+        "unit": "dl"
+      },
+      {
+        "name": "æg",
+        "quantity": 5.0,
+        "unit": "stk"
+      },
+      {
+        "name": "salt",
+        "quantity": 2.0,
+        "unit": "tsk"
+      }
+    ],
+    "servings": 0,
+    "mealType": "Bagning",
+    "fullMeal": false,
+    "calories": 0,
+    "timeToCook": 90,
+    "comments": "Fiberindholdet er 7,4 g pr. 100 g. Hvis man vil øge indholdet af fibre, kan man evt. tage solsikkekerner ud og tilsætte havregryn i stedet eller flere hørfrø/sesamfrø, da de indeholder langt flere fibre end solsikkekerner.",
+    "source": "LOWFODMAPDIET 1, side 243",
+    "tried": false
+  },
+  {
+    "name": "Kartoffelsalat med grøn chili",
+    "instructions": [
+      "Kog kartofler og skær dem derefter i tern på ca. 2 x 2 cm.",
+      "Vask rød snackpeber og skær dem i små tern på ca. ½ x ½ cm.",
+      "Vask den grønne chili, tag kerner ud og skær ½ grøn chili i bittesmå tern.",
+      "Vask forårsløg og skær den grønne top i tynde skiver.",
+      "Bland det hele sammen.",
+      "Dressing: Bland alle ingredienserne sammen til dressingen (yoghurt, ahornsirup, mayonnaise, dijonsennep) og tilsæt til kartoffelsalaten."
+    ],
+    "ingredients": [
+      {
+        "name": "kartofler",
+        "quantity": 500.0,
+        "unit": "g"
+      },
+      {
+        "name": "snackpeber",
+        "quantity": 2.0,
+        "unit": "stk"
+      },
+      {
+        "name": "basilikum",
+        "quantity": 2.0,
+        "unit": "dl"
+      },
+      {
+        "name": "grøn chili",
+        "quantity": 0.5,
+        "unit": "stk"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 5.0,
+        "unit": "stk"
+      },
+      {
+        "name": "purløg",
+        "quantity": 2.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "laktosefri yoghurt",
+        "quantity": 2.0,
+        "unit": "dl"
+      },
+      {
+        "name": "ahornsirup",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "mayonnaise",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "dijonsennep",
+        "quantity": 0.5,
+        "unit": "tsk"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Salat",
+    "fullMeal": false,
+    "calories": 0,
+    "timeToCook": 45,
+    "comments": "Smager dejligt til grillet kød eller fjerkræ. Hvis den spises som frokostsalat, kan den tilsættes lidt ristet bacon eller skinke i tern.",
+    "source": "LOWFODMAPDIET 1, side 135",
+    "tried": false
+  },
+  {
+    "name": "Orientalske kødboller med ris",
+    "instructions": [
+      "Vask og hak persille og koriander fint.",
+      "Bland persille, koriander, havregryn, æg, mælk og det hakkede oksekød til en jævn fars.",
+      "Sæt en gryde med 1 liter vand til at koge.",
+      "Hæld kokosmælk og de hakkede/flåede tomater i en sauterpande og tilsæt garam masala og det tørrede basilikum. Lad sovsen simre og koge lidt ind i 30-40 min.",
+      "Skyl risen og kog dem efter anvisning på pakken. Typisk kogtetid er 35-40 min, men se hvad der står på emballagen.",
+      "Imens sovs og ris koger, formes kødfarsen med to teskeer til kødboller i mundrette størrelser og lægges med skeen forsigtigt i det kogende vand.",
+      "Lad kødbollerne ligge i vandet i ca. 5 min og fisk dem herefter op og læg dem i sovsen i sauterpanden. Lad retten simre i ca. 10 min., når alle kødboller er færdige.",
+      "Pynt evt. gryderetten med lidt frisk koriander"
+    ],
+    "ingredients": [
+      {
+        "name": "persille",
+        "quantity": 1.0,
+        "unit": "bundt"
+      },
+      {
+        "name": "koriander",
+        "quantity": 1.0,
+        "unit": "bundt"
+      },
+      {
+        "name": "havregryn",
+        "quantity": 2.0,
+        "unit": "dl"
+      },
+      {
+        "name": "æg",
+        "quantity": 3.0,
+        "unit": "stk"
+      },
+      {
+        "name": "laktosefri mælk",
+        "quantity": 0.5,
+        "unit": "dl"
+      },
+      {
+        "name": "hakket oksekød",
+        "quantity": 400.0,
+        "unit": "g"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 8.0,
+        "unit": "stk"
+      },
+      {
+        "name": "hakkede tomater",
+        "quantity": 2.0,
+        "unit": "dåse"
+      },
+      {
+        "name": "light kokosmælk",
+        "quantity": 1.0,
+        "unit": "dåse"
+      },
+      {
+        "name": "garam masala",
+        "quantity": 4.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "tørret basilikum",
+        "quantity": 3.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "brune ris",
+        "quantity": 250.0,
+        "unit": "g"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 60,
+    "comments": "OBS! Mængden af hakkede tomater overskrider grænsen for frcutose! Brune ris kan udskiftes med fuldkornsris. Retten kan varieres med frisk timian og rosmarin og lidt paprika.",
+    "source": "LOWFODMAPDIET 1, side 175",
+    "tried": false
+  },
+  {
+    "name": "Cremet Kylling Pesto Pasta",
+    "instructions": [
+      "Forbered pesto (se opskrift i grundlæggende afsnit).",
+      "Kog pastaen i henhold til pakkeanvisningerne. Dræn, men gem 1/4 kop af kogevæsken og sæt til side.",
+      "Skær kylling i fine stykker og steg i olie med lidt salt og peber. Sæt til side.",
+      "Skær broccoli i små buketter og steg på samme pande/gryde som blev brugt til kylling.",
+      "Skær forårsløg tyndt og tilføj evt. til broccoli. Halver tomater.",
+      "Returner pastaen til en stor pande eller gryde over lav-medium varme. Tilsæt den reserverede kogevæske, fløde, parmesanost, pesto, forårsløgstoppene, kylling, halverede cherrytomater, broccolibuketter og babyspinatblade. Rør indtil alt er godt blandet.",
+      "Varm under konstant omrøring i yderligere 3-5 minutter indtil det er gennemvarmet.",
+      "Fordel pastaen i fire skåle og top med ekstra parmesanost."
+    ],
+    "ingredients": [
+      {
+        "name": "pasta",
+        "quantity": 350.0,
+        "unit": "g"
+      },
+      {
+        "name": "madlavningsfløde",
+        "quantity": 130.0,
+        "unit": "g"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 1.0,
+        "unit": "bundt"
+      },
+      {
+        "name": "kyllingebryst",
+        "quantity": 250.0,
+        "unit": "g"
+      },
+      {
+        "name": "cherrytomater",
+        "quantity": 8.0,
+        "unit": "stk"
+      },
+      {
+        "name": "broccoli",
+        "quantity": 90.0,
+        "unit": "g"
+      },
+      {
+        "name": "salt og peber",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "babyspinat",
+        "quantity": 76.0,
+        "unit": "g"
+      },
+      {
+        "name": "pesto",
+        "quantity": 144.0,
+        "unit": "g"
+      },
+      {
+        "name": "parmesanost",
+        "quantity": 40.0,
+        "unit": "g"
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 45,
+    "comments": "Parmesan kan udskiftes med pecorinoost eller lignende.",
+    "source": "Monash App",
+    "tried": true
+  },
+  {
+    "name": "Majspandekager med oksekødsfyld",
+    "instructions": [
+      "Majsmel, laktosefri mælk, æg, olie og salt piskes godt sammen.",
+      "Dejen sættes i køleskab og 'trækker' ca. ½ time.",
+      "Bag pandekager på en slip-let pande. Læg dem til side mens du laver fyldet.",
+      "Skær det grønne fra forårsløg i tynde ringe og gulerødderne i fine tern.",
+      "Varm olien op i en gryde og svits kødet heri til det skifter farve.",
+      "Tilsæt forårsløg, gulerødder, flåede tomater, koncentreret tomatpure og fond/vand.",
+      "Krydr med oregano, timian/basilikum, paprika, salt og peber.",
+      "Lad kødsovsen småkoge uden låg ca. 20 min.",
+      "Rør jævnligt i gryden. Smag eventuelt yderligere til med krydderier, salt og peber.",
+      "Majspandekagerne rulles om fyldet og lægges i et ildfast fad. (2-3 spsk. fyld til 1 majspandekage).",
+      "Før majspandekagerne sættes i ovnen drysses eventuelt med revet ost.",
+      "Majspandekagerne sættes i en forvarmet ovn på 200 grader og varmes til osten smelter, ca. 15-20 min."
+    ],
+    "ingredients": [
+      {
+        "name": "majsmel",
+        "quantity": 100.0,
+        "unit": "g"
+      },
+      {
+        "name": "laktosefri mælk",
+        "quantity": 4.0,
+        "unit": "dl"
+      },
+      {
+        "name": "æg",
+        "quantity": 4.0,
+        "unit": "stk"
+      },
+      {
+        "name": "olie",
+        "quantity": 1.5,
+        "unit": "spsk"
+      },
+      {
+        "name": "salt",
+        "quantity": 0.5,
+        "unit": "tsk"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 2.0,
+        "unit": "stk"
+      },
+      {
+        "name": "gulerødder",
+        "quantity": 2.0,
+        "unit": "stk"
+      },
+      {
+        "name": "hakket oksekød",
+        "quantity": 300.0,
+        "unit": "g"
+      },
+      {
+        "name": "flåede tomater",
+        "quantity": 0.5,
+        "unit": "dåse"
+      },
+      {
+        "name": "koncentreret tomatpure",
+        "quantity": 20.0,
+        "unit": "g"
+      },
+      {
+        "name": "kyllingefond",
+        "quantity": 1.0,
+        "unit": "dl"
+      },
+      {
+        "name": "oregano",
+        "quantity": 0.5,
+        "unit": "spsk"
+      },
+      {
+        "name": "timian",
+        "quantity": 0.5,
+        "unit": "tsk"
+      },
+      {
+        "name": "groft salt",
+        "quantity": 0.75,
+        "unit": "tsk"
+      },
+      {
+        "name": "peber",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "paprika",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "revet ost",
+        "quantity": 0.0,
+        "unit": ""
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 90,
+    "comments": "Der kan anvendes oliven- eller rapsolie, en spsk til dejen. 3 små gulerødder eller 1 stor. Paprika kan udelades. Pandekagerne kan anvendes som wraps smurt med et tyndt lag frisksost, en håndfuld salat og med skiver af røget laks. Kødsovsen kan bruges til flere formål, så lav evt. en større portion og brug til pasta den ene dag og majspandekager den næste. Friske krydderurter kan også tilsættes efter smag.",
+    "source": "LOWFODMAPDIET 1, side 181-183",
+    "tried": false
+  },
+  {
+    "name": "Kyllingesalat med kartofler og grønne bønner",
+    "instructions": [
+      "Skræl og kog kartofler, til de er møre (ca. 20 minutter afhængig af størrelse).",
+      "Dræn og afkøl kartofler, og skær i mundrette stykker.",
+      "Steg hele kyllingebryster i ca. 1 spsk. rapsolie, til de er gennemstegte.",
+      "Lad kyllingebryst afkøle lidt, og skær i skiver.",
+      "Giv de grønne bønner et kort opkog, så de fortsat er sprøde. Lad dem afkøle.",
+      "Skyl og hak persille og top fra forårsløg.",
+      "Varm en pande op, og rist pinjekerner herpå.",
+      "Opvarm resten af rapsolien (ca. 2 spsk.), og steg skiver af polenta, til den er sprød og gylden.",
+      "Bland salaten sammen; kartofler, kyllingebryst, grønne bønner, krydderurter og sprød polenta. Smag til, og tilføj evt. lidt flere krydderurter, salt og peber efter smag."
+    ],
+    "ingredients": [
+      {
+        "name": "kartofler",
+        "quantity": 800.0,
+        "unit": "g"
+      },
+      {
+        "name": "kyllingebryst",
+        "quantity": 600.0,
+        "unit": "g"
+      },
+      {
+        "name": "grønne bønner",
+        "quantity": 200.0,
+        "unit": "g"
+      },
+      {
+        "name": "persille",
+        "quantity": 50.0,
+        "unit": "g"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 1.0,
+        "unit": "bundt"
+      },
+      {
+        "name": "pinjekerner",
+        "quantity": 50.0,
+        "unit": "g"
+      },
+      {
+        "name": "polenta",
+        "quantity": 100.0,
+        "unit": "g"
+      },
+      {
+        "name": "rapsolie",
+        "quantity": 3.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "krydderurter",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "salt og peber",
+        "quantity": 0.0,
+        "unit": ""
+      }
+    ],
+    "servings": 4,
+    "mealType": "Salat",
+    "fullMeal": true,
+    "calories": 587,
+    "timeToCook": 60,
+    "comments": "Der er ikke medregnet brød til salaten, da polenta fungerer som en slags croutoner i salaten. Hvis polenta udelades, kan der i stedet serveres groft brød til salaten. Kan med fordel serveres med en olie-/eddikedressing.",
+    "source": "LOWFODMAPDIET 2, side 121-123",
+    "tried": false
+  },
+  {
+    "name": "Jordbær-rabarbermarmelade",
+    "instructions": [
+      "Bland jordbær og rabarber i en gryde.",
+      "Varm langsomt op.",
+      "Blend jordbær og rabarber med en stavblender, før det koger.",
+      "Tilsæt syltesukker.",
+      "Kog under omrøring.",
+      "Kog marmeladen i 4 minutter.",
+      "Hæld på varme, rengjorte glas.",
+      "Luk glassene tæt. Opbevares køligt. Åbnede glas skal opbevares på køl."
+    ],
+    "ingredients": [
+      {
+        "name": "jordbær",
+        "quantity": 500.0,
+        "unit": "g"
+      },
+      {
+        "name": "rabarber",
+        "quantity": 300.0,
+        "unit": "g"
+      },
+      {
+        "name": "syltesukker",
+        "quantity": 500.0,
+        "unit": "g"
+      }
+    ],
+    "servings": 0,
+    "mealType": "Tilbehør",
+    "fullMeal": false,
+    "calories": 0,
+    "timeToCook": 30,
+    "comments": "Jordbær og rabarber kan være enten friske eller optøede. Syltesukker kan evt fåes fra Dansukker. Kan fremstilles af andre FODMAP-venlige frugter, fx hindbær eller blåbær.",
+    "source": "LOWFODMAPDIET 2, side 195",
+    "tried": false
+  },
+  {
+    "name": "Massaman karry med kylling og grøntsager",
+    "instructions": [
+      "Find alle ingredienser frem, skær kød og grøntsager ud så tingene hurtig kan blandes sammen. Kyllingebryst, peberfrugt, kartofler og gulerødder i tern. Chili og forårsløg (fint)hakket. Ingefær hakket eller revet. Bønner halveret.",
+      "Sæt en stor støbejerns- eller anden stegegryde over på kraftig varme, smelt smørret og rist krydderierne af i kort tid.",
+      "Tilsæt kyllingebryst, chili og ingefær i gryden og rist ved kraftig varme til det har fået lidt farve.",
+      "Tilsæt rød peberfrugt, kartofler og gulerod, og rist ved kraftig varme til grøntsagerne har fået lidt farve.",
+      "Tilsæt grønne bønner og forårsløg, og fortsæt ristningen ved kraftig varme til det har fået lidt farve, skru herefter ned for varmen.",
+      "Tilsæt kokosmælk, yoghurt, fiskesauce, sukker, salt, hvidløgsolie og hønsefond. Bland sammen og bring retten op til kogepunktet og lad den småkoge i ca 35 minutter under låg.",
+      "Kog basmati- eller jasminris som angivet på posen.",
+      "Rør en jævning af vand og maizena, tilsæt til retten og kog yderligere 2-3 minutter.",
+      "Hak peanuts til crunch og skær lime i både til servering."
+    ],
+    "ingredients": [
+      {
+        "name": "karry",
+        "quantity": 1.5,
+        "unit": "tsk"
+      },
+      {
+        "name": "paprika",
+        "quantity": 1.0,
+        "unit": "tsk"
+      },
+      {
+        "name": "garam masala",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "smør",
+        "quantity": 80.0,
+        "unit": "g"
+      },
+      {
+        "name": "kyllingebryst",
+        "quantity": 650.0,
+        "unit": "g"
+      },
+      {
+        "name": "chili",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "ingefær",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "rød peberfrugt",
+        "quantity": 1.0,
+        "unit": "stk"
+      },
+      {
+        "name": "kartofler",
+        "quantity": 4.0,
+        "unit": "stk"
+      },
+      {
+        "name": "gulerod",
+        "quantity": 3.0,
+        "unit": "stk"
+      },
+      {
+        "name": "grønne bønner",
+        "quantity": 200.0,
+        "unit": "g"
+      },
+      {
+        "name": "forårsløg",
+        "quantity": 4.0,
+        "unit": "stk"
+      },
+      {
+        "name": "kokosmælk",
+        "quantity": 1.0,
+        "unit": "ds"
+      },
+      {
+        "name": "yoghurt naturel",
+        "quantity": 1.5,
+        "unit": "dl"
+      },
+      {
+        "name": "fiskesauce",
+        "quantity": 1.5,
+        "unit": "tsk"
+      },
+      {
+        "name": "rørsukker",
+        "quantity": 2.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "salt",
+        "quantity": 2.5,
+        "unit": "tsk"
+      },
+      {
+        "name": "hvidløgsolie",
+        "quantity": 1.5,
+        "unit": "tsk"
+      },
+      {
+        "name": "hønsefond",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "maizena",
+        "quantity": 1.0,
+        "unit": "spsk"
+      },
+      {
+        "name": "lime",
+        "quantity": 0.0,
+        "unit": ""
+      },
+      {
+        "name": "saltede peanuts",
+        "quantity": 0.0,
+        "unit": ""
+      }
+    ],
+    "servings": 6,
+    "mealType": "Hovedret",
+    "fullMeal": true,
+    "calories": 0,
+    "timeToCook": 75,
+    "comments": "Serveres med basmati-ris, peanut-crunch og frisk lime. Retten er inspireret af både thailandsk og indisk køkken, og er krydret men ikke stærk. Ingefær kan udelades. Halv til hel chili. Lidt koncentreret hønsefond. Gerne stærk paprika.",
+    "source": "Hjorth.com",
     "tried": false
   }
 ]

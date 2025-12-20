@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Koldhævede speltboller",
+    "instructions": [
+      "1. Vej koldt vand og gær af i en skål, og rør gæren ud i vandet.",
+      "2. Tilsæt speltmel, havregryn og salt og rør det sammen. Dejen er lidt tynd, men sådan skal den være. Har du ikke grovvalsede havregryn, kan du sagtens anvende de finvalsede.",
+      "3. Dejen skal blot røres sammen med en grydeske - og ikke æltes yderligere.",
+      "4. Dæk til med husholdningsfilm og et rent viskestykke og stil skålen i køleskabet natten over. Eller i ca. 10 timer.",
+      "5. Om morgenen tages skålen med dejen ud af køleskabet, og og ovnen tændes på 250 grader varmluft. En bageplade beklædes med bagepapir, og med to spiseskeer laver du nu 12 boller på bagepladen. Pensl speltbollerne med lidt mælk.",
+      "6. Bag din koldlhævede speltboller i ca. 20 minutter, hvor varmen i ovnen skrues ned til 200 grader efter ca. 5 minutter - hvorefter bollerne altså bages færdige i yderligere 15 minutter. Bagetiden afhænger naturligvis af hvor meget din ovn præcist varmer, så hold øje med speltbollerne i ovnen."
+    ],
+    "ingredients": [
+      {
+        "name": "vand",
+        "quantity": 5.0,
+        "unit": "dl"
+      },
+      {
+        "name": "gær",
+        "quantity": 15.0,
+        "unit": "g"
+      },
+      {
+        "name": "speltmel",
+        "quantity": 500.0,
+        "unit": "g"
+      },
+      {
+        "name": "havregryn",
+        "quantity": 50.0,
+        "unit": "g"
+      },
+      {
+        "name": "salt",
+        "quantity": 10.0,
+        "unit": "g"
+      },
+      {
+        "name": "mælk",
+        "quantity": 0.0,
+        "unit": "lidt"
+      }
+    ],
+    "servings": 12,
+    "mealType": "Bagning",
+    "fullMeal": false,
+    "calories": 0,
+    "timeToCook": 30,
+    "comments": "",
+    "source": "",
+    "tried": false
+  },
+  {
+    "name": "Kylling svøbt i lufttørret skinke",
+    "instructions": [
+      "1. Skyl persillen, og fjern stilken.",
+      "2. Fordel kyllingekødet i 8 ens portioner.",
+      "3. På 1 skive skinke lægges persille og kyllingeinderfileter, krydr med friskkværnet peber.",
+      "4. Rul skinken sammen om persille og kylling.",
+      "5. De 8 ruller lægges i et smurt ovnfast fad.",
+      "6. Steges i ovnen ved 200 grader i 15 minutter."
+    ],
+    "ingredients": [
+      {
+        "name": "kyllingeinderfilet",
+        "quantity": 450.0,
+        "unit": "g"
+      },
+      {
+        "name": "lufttørret skinke",
+        "quantity": 8.0,
+        "unit": "skiver"
+      },
+      {
+        "name": "persille",
+        "quantity": 1.0,
+        "unit": "bundt"
+      },
+      {
+        "name": "peber",
+        "quantity": 1.0,
+        "unit": "knivspids"
+      },
+      {
+        "name": "rapsolie",
+        "quantity": 0.0,
+        "unit": ""
+      }
+    ],
+    "servings": 4,
+    "mealType": "Hovedret",
+    "fullMeal": false,
+    "calories": 0,
+    "timeToCook": 15,
+    "comments": "",
+    "source": "",
+    "tried": false
+  }
+]

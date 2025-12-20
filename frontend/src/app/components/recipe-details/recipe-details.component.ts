@@ -31,4 +31,5 @@ export class RecipeDetailsComponent implements OnInit {
       console.error('Recipe name is null');
     }
   }
+
 }

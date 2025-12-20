@@ -29,7 +29,7 @@ public class Recipe {
     @JoinColumn(name = "recipe_id", nullable = false)
     private List<Ingredient> ingredients = new ArrayList<>();
     
-    @Min(1)
+    @Min(0)
     @Column(nullable = false)
     private Integer servings;
     
