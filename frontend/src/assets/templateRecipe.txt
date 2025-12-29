@@ -14,7 +14,6 @@
   "servings": ,
   "mealType": ,
   "fullMeal": ,
-  "calories": ,
   "timeToCook": ,
   "comments": "",
   "source": "",

@@ -41,11 +41,7 @@ public class Recipe {
     private Boolean fullMeal = false;
     
     @Min(0)
-    @Column(nullable = false)
-    private Integer calories;
-    
-    @Min(0)
-    @Column(name = "time_to_cook", nullable = false)
+    @Column(name = "time_to_cook", nullable = true)
     private Integer timeToCook;
     
     @Column(columnDefinition = "TEXT")
@@ -78,11 +74,10 @@ public class Recipe {
     public Recipe() {
     }
     
-    public Recipe(String name, Integer servings, String mealType, Integer calories, Integer timeToCook) {
+    public Recipe(String name, Integer servings, String mealType, Integer timeToCook) {
         this.name = name;
         this.servings = servings;
         this.mealType = mealType;
-        this.calories = calories;
         this.timeToCook = timeToCook;
     }
     
@@ -150,14 +145,6 @@ public class Recipe {
     
     public void setFullMeal(Boolean fullMeal) {
         this.fullMeal = fullMeal;
-    }
-    
-    public Integer getCalories() {
-        return calories;
-    }
-    
-    public void setCalories(Integer calories) {
-        this.calories = calories;
     }
     
     public Integer getTimeToCook() {

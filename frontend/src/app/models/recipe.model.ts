@@ -6,7 +6,6 @@ export interface Recipe {
     servings: number;
     mealType: string;
     fullMeal: boolean;
-    calories: number;
     timeToCook: number;
     comments?: string;
     source?: string;

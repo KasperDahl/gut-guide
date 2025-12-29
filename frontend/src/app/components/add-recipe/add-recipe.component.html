@@ -1,4 +1,106 @@
-<form [formGroup]="recipeForm">
+<div class="recipe-container">
+  <h2>{{ isEditMode ? 'Edit Recipe' : 'Add New Recipe' }}</h2>
+
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Basic Info Section -->
+    <div class="form-section">
+      <div class="form-group">
+        <label for="name">Recipe Name</label>
+        <input id="name" type="text" formControlName="name" placeholder="e.g. Spaghetti Bolognese">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="servings">Servings</label>
+          <input id="servings" type="number" formControlName="servings" min="0">
+        </div>
+        <div class="form-group">
+          <label for="timeToCook">Time (mins)</label>
+          <input id="timeToCook" type="number" formControlName="timeToCook" min="0">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mealType">Meal Type</label>
+          <input id="mealType" type="text" formControlName="mealType" placeholder="e.g. Dinner">
+        </div>
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" formControlName="fullMeal"> Full Meal
+          </label>
+          <label>
+            <input type="checkbox" formControlName="tried"> Tried Before
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ingredients Section -->
+    <div class="form-section">
+      <h3>Ingredients</h3>
+      <div formArrayName="ingredients">
+        <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i" class="ingredient-row">
+          
+          <div class="form-group grow-2">
+            <input type="text" formControlName="name" placeholder="Ingredient Name">
+          </div>
+          
+          <div class="form-group">
+            <!-- Decimal incrementer using step="0.1" -->
+            <input type="number" formControlName="quantity" placeholder="Qty" step="0.1" min="0">
+          </div>
+          
+          <div class="form-group">
+            <select formControlName="unit">
+              <option *ngFor="let u of units" [value]="u">{{ u }}</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn-remove" (click)="removeIngredient(i)" title="Remove Ingredient">
+            &times;
+          </button>
+        </div>
+      </div>
+      <button type="button" class="btn-add" (click)="addIngredient()">+ Add Ingredient</button>
+    </div>
+
+    <!-- Instructions Section -->
+    <div class="form-section">
+      <h3>Instructions</h3>
+      <div formArrayName="instructions">
+        <div *ngFor="let instruction of instructions.controls; let i = index" class="instruction-row">
+          <span class="step-number">{{ i + 1 }}.</span>
+          <textarea [formControlName]="i" rows="2" placeholder="Describe this step..."></textarea>
+          <button type="button" class="btn-remove" (click)="removeInstruction(i)" title="Remove Step">
+            &times;
+          </button>
+        </div>
+      </div>
+      <button type="button" class="btn-add" (click)="addInstruction()">+ Add Step</button>
+    </div>
+
+    <!-- Additional Info -->
+    <div class="form-section">
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea id="comments" formControlName="comments" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="source">Source (URL or Book)</label>
+        <input id="source" type="text" formControlName="source">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-save" [disabled]="recipeForm.invalid">Save Recipe</button>
+    </div>
+  </form>
+</div>
+
+
+<!-- <form [formGroup]="recipeForm">
   <mat-card>
     <mat-card-header>
       <mat-card-title>
@@ -18,135 +120,19 @@
       </div>
       <div>
         <h3>Instructions</h3>
-        <!-- <div *ngFor="let instruction of instructions; let i=index" class="form-row">
+        <div *ngFor="let instruction of instructions; let i=index" class="form-row">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Step {{i + 1}}</mat-label>
             <input matInput [formControlName]="i" placeholder="Enter instruction">
           </mat-form-field>
           <button mat-icon-button color="warn" type="button" (click)="removeInstruction(i)" *ngIf="instructions.length > 1">
           </button>
-        </div> -->
+        </div>
       </div>
     </mat-card-content>
     <mat-card-actions>
       <button class="custom-button" type="submit">Save Recipe</button>
       <button class="custom-button" type="button">Discard</button>
-    </mat-card-actions>
-  </mat-card>
-</form>
-
-<!-- <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="recipe-form">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Add New Recipe</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="form-row">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Recipe Name</mat-label>
-          <input matInput formControlName="name" placeholder="Enter recipe name">
-        </mat-form-field>
-      </div>
-
-      <div class="form-section">
-        <h3>Instructions</h3>
-        <div formArrayName="instructions">
-          <div *ngFor="let instruction of instructions.controls; let i=index" class="form-row">
-            <mat-form-field appearance="outline" class="full-width">
-              <mat-label>Step {{i + 1}}</mat-label>
-              <input matInput [formControlName]="i" placeholder="Enter instruction">
-            </mat-form-field>
-            <button mat-icon-button color="warn" type="button" (click)="removeInstruction(i)" *ngIf="instructions.length > 1">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </div>
-        </div>
-        <button mat-button type="button" (click)="addInstruction()">
-          <mat-icon>add</mat-icon> Add Instruction
-        </button>
-      </div>
-
-      <div class="form-section">
-        <h3>Ingredients</h3>
-        <div formArrayName="ingredients">
-          <div *ngFor="let ingredient of ingredients.controls; let i=index" [formGroupName]="i" class="ingredient-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Name</mat-label>
-              <input matInput formControlName="name" placeholder="Ingredient name">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Quantity</mat-label>
-              <input matInput type="number" formControlName="quantity">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Unit</mat-label>
-              <input matInput formControlName="unit" placeholder="g, ml, etc">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Quantity String</mat-label>
-              <input matInput formControlName="quantityString" placeholder="e.g., 1 cup">
-            </mat-form-field>
-            <button mat-icon-button color="warn" type="button" (click)="removeIngredient(i)" *ngIf="ingredients.length > 1">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </div>
-        </div>
-        <button mat-button type="button" (click)="addIngredient()">
-          <mat-icon>add</mat-icon> Add Ingredient
-        </button>
-      </div>
-
-      <div class="form-row two-columns">
-        <mat-form-field appearance="outline">
-          <mat-label>Servings</mat-label>
-          <input matInput type="number" formControlName="servings">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Meal Type</mat-label>
-          <mat-select formControlName="mealType">
-            <mat-option *ngFor="let type of mealTypes" [value]="type">
-              {{type}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div class="form-row two-columns">
-        <mat-form-field appearance="outline">
-          <mat-label>Calories</mat-label>
-          <input matInput type="number" formControlName="calories">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Time to Cook (minutes)</mat-label>
-          <input matInput type="number" formControlName="timeToCook">
-        </mat-form-field>
-      </div>
-
-      <div class="form-row">
-        <mat-checkbox formControlName="fullMeal">Full Meal</mat-checkbox>
-      </div>
-
-      <div class="form-row">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Comments</mat-label>
-          <textarea matInput formControlName="comments" rows="3"></textarea>
-        </mat-form-field>
-      </div>
-
-      <div class="form-row">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Source</mat-label>
-          <input matInput formControlName="source">
-        </mat-form-field>
-      </div>
-
-      <div class="form-row">
-        <mat-checkbox formControlName="tried">Recipe Tried</mat-checkbox>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Save Recipe</button>
-      <button mat-button type="button" (click)="onDiscard()">Discard</button>
     </mat-card-actions>
   </mat-card>
 </form> -->

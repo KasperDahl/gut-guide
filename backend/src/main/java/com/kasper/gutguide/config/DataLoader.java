@@ -44,7 +44,6 @@ public class DataLoader {
                     recipe.setServings((Integer) recipeData.get("servings"));
                     recipe.setMealType((String) recipeData.get("mealType"));
                     recipe.setFullMeal((Boolean) recipeData.getOrDefault("fullMeal", false));
-                    recipe.setCalories((Integer) recipeData.get("calories"));
                     recipe.setTimeToCook((Integer) recipeData.get("timeToCook"));
                     recipe.setComments((String) recipeData.get("comments"));
                     recipe.setSource((String) recipeData.get("source"));
