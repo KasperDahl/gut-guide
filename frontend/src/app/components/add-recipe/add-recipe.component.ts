@@ -131,8 +131,7 @@ export class AddRecipeComponent implements OnInit {
     if (this.isEditMode) {
       // this.recipeService.update(recipe).subscribe(...)
     } else {
-      this.recipeService.createRecipe(recipe).subscribe(response => console.log("created recipe reponse: ", response))
-      // this.recipeService.create(recipe).subscribe(...)
+      this.recipeService.createRecipe(recipe).subscribe(response => console.log("Backend response from creating recipe: ", response))
     }
   }
 
