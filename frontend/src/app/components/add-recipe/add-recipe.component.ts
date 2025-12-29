@@ -1,49 +1,53 @@
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
   FormArray,
-  FormControl,
-  ReactiveFormsModule,
   Validators,
+  ReactiveFormsModule,
 } from '@angular/forms';
-import { MatOption } from '@angular/material/core';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatSelect } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
-import { MaterialCardModules } from '../../modules/material-card-modules';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Recipe, Ingredient } from '../../models/recipe.model';
+// import { RecipeService } from '../../services/recipe.service'; // TODO: Import your actual service
 
 @Component({
-    selector: 'app-add-recipe',
-    standalone: true,
-    imports: [
-    ...MaterialCardModules,
-    ReactiveFormsModule,
-    MatFormField,
-    MatLabel,
-    MatOption,
-    MatSelect,
-    MatInputModule
-],
-    templateUrl: './add-recipe.component.html',
-    styleUrls: ['./add-recipe.component.scss']
+  selector: 'app-add-recipe',
+  templateUrl: './add-recipe.component.html',
+  styleUrls: ['./add-recipe.component.scss'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
 })
-export class AddRecipeComponent {
+export class AddRecipeComponent implements OnInit {
   recipeForm: FormGroup;
+  isEditMode = false;
+  recipeId?: number;
 
-  constructor(private fb: FormBuilder) {
+  // Dropdown options for units
+  units: string[] = [
+    'g',
+    'kg',
+    'ml',
+    'l',
+    'tsp',
+    'tbsp',
+    'cup',
+    'pcs',
+    'oz',
+    'lb',
+  ];
+
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) // private recipeService: RecipeService // Inject service here
+  {
     this.recipeForm = this.fb.group({
-      name: [
-        '',
-        [Validators.required, Validators.minLength(3), Validators.maxLength(50)],
-      ],
-      instructions: this.fb.array([
-        '',
-        [Validators.required, Validators.minLength(3)],
-      ]),
-      ingredients: this.fb.array([this.createIngredient()]),
-      servings: [null],
+      name: ['', Validators.required],
+      instructions: this.fb.array([]),
+      ingredients: this.fb.array([]),
+      servings: [1, [Validators.required, Validators.min(1)]],
       mealType: [''],
       fullMeal: [false],
       calories: [null],
@@ -54,122 +58,93 @@ export class AddRecipeComponent {
     });
   }
 
+  ngOnInit(): void {
+    // Check route parameters to see if we are editing an existing recipe
+    this.route.params.subscribe((params) => {
+      if (params['id']) {
+        this.isEditMode = true;
+        this.recipeId = +params['id'];
+        // TODO: Call service to get recipe by ID and populate form
+        // this.loadRecipe(this.recipeId);
+      } else {
+        // Initialize with one empty row for new recipes
+        this.addInstruction();
+        this.addIngredient();
+      }
+    });
+  }
+
+  // --- Getters for FormArrays ---
   get instructions(): FormArray {
     return this.recipeForm.get('instructions') as FormArray;
-  }
-
-  addInstruction(): void {
-    this.instructions.push(this.fb.control(''));
-  }
-
-  removeInstruction(index: number): void {
-    this.instructions.removeAt(index);
   }
 
   get ingredients(): FormArray {
     return this.recipeForm.get('ingredients') as FormArray;
   }
 
-  addIngredient(): void {
-    this.ingredients.push(this.createIngredient());
+  // --- Instructions Management ---
+  addInstruction(value: string = ''): void {
+    this.instructions.push(this.fb.control(value, Validators.required));
+  }
+
+  removeInstruction(index: number): void {
+    this.instructions.removeAt(index);
+  }
+
+  // --- Ingredients Management ---
+  addIngredient(ingredient?: Ingredient): void {
+    const group = this.fb.group({
+      id: [ingredient?.id || null], // Keep ID if editing
+      name: [ingredient?.name || '', Validators.required],
+      quantity: [
+        ingredient?.quantity || null,
+        [Validators.required, Validators.min(0)],
+      ],
+      unit: [ingredient?.unit || 'pcs'],
+    });
+    this.ingredients.push(group);
   }
 
   removeIngredient(index: number): void {
     this.ingredients.removeAt(index);
   }
 
-  createIngredient(): FormGroup {
-    return this.fb.group({
-      name: [''],
-      quantity: [null],
-      unit: [''],
-      quantityString: [''],
-    });
+  // --- Submission ---
+  onSubmit(): void {
+    if (this.recipeForm.invalid) {
+      this.recipeForm.markAllAsTouched();
+      return;
+    }
+
+    const formValue = this.recipeForm.value;
+
+    // Construct the Recipe object
+    const recipe: Recipe = {
+      ...formValue,
+      id: this.recipeId, // Ensure ID is present if editing
+    };
+
+    console.log('Submitting Recipe:', recipe);
+
+    if (this.isEditMode) {
+      // this.recipeService.update(recipe).subscribe(...)
+    } else {
+      // this.recipeService.create(recipe).subscribe(...)
+    }
   }
 
-  // import { Component, OnInit } from '@angular/core';
-  // import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
-
-  // @Component({
-  //   selector: 'app-add-recipe',
-  //   templateUrl: './add-recipe.component.html',
-  //   styleUrls: ['./add-recipe.component.scss']
-  // })
-  // export class AddRecipeComponent implements OnInit {
-  //   recipeForm: FormGroup;
-  //   mealTypes = ['Breakfast', 'Lunch', 'Dinner', 'Snack'];
-
-  //   constructor(private fb: FormBuilder) {
-  //     this.createForm();
-  //   }
-
-  //   ngOnInit(): void {}
-
-  //   createForm(): void {
-  //     this.recipeForm = this.fb.group({
-  //       name: [''],
-  //       instructions: this.fb.array(['']),
-  //       ingredients: this.fb.array([this.createIngredient()]),
-  //       servings: [null],
-  //       mealType: [''],
-  //       fullMeal: [false],
-  //       calories: [null],
-  //       timeToCook: [null],
-  //       comments: [''],
-  //       source: [''],
-  //       tried: [false]
-  //     });
-  //   }
-
-  //   createIngredient(): FormGroup {
-  //     return this.fb.group({
-  //       name: [''],
-  //       quantity: [null],
-  //       unit: [''],
-  //       quantityString: ['']
-  //     });
-  //   }
-
-  //   get instructions(): FormArray {
-  //     return this.recipeForm.get('instructions') as FormArray;
-  //   }
-
-  //   get ingredients(): FormArray {
-  //     return this.recipeForm.get('ingredients') as FormArray;
-  //   }
-
-  //   addInstruction(): void {
-  //     this.instructions.push(this.fb.control(''));
-  //   }
-
-  //   removeInstruction(index: number): void {
-  //     this.instructions.removeAt(index);
-  //   }
-
-  //   addIngredient(): void {
-  //     this.ingredients.push(this.createIngredient());
-  //   }
-
-  //   removeIngredient(index: number): void {
-  //     this.ingredients.removeAt(index);
-  //   }
-
-  //   onSubmit(): void {
-  //     if (this.recipeForm.valid) {
-  //       console.log(this.recipeForm.value);
-  //       // Here you would typically call a service to save the recipe
-  //     }
-  //   }
-
-  //   onDiscard(): void {
-  //     this.recipeForm.reset();
-  //     // Reset arrays to initial state
-  //     while (this.instructions.length > 1) {
-  //       this.instructions.removeAt(1);
-  //     }
-  //     while (this.ingredients.length > 1) {
-  //       this.ingredients.removeAt(1);
-  //     }
-  //   }
-  // }
+  /* Helper to populate form when editing
+  private loadRecipe(id: number) {
+    this.recipeService.getRecipe(id).subscribe((data: Recipe) => {
+      this.recipeForm.patchValue(data);
+      
+      // Clear and repopulate arrays
+      this.instructions.clear();
+      data.instructions.forEach(inst => this.addInstruction(inst));
+      
+      this.ingredients.clear();
+      data.ingredients.forEach(ing => this.addIngredient(ing));
+    });
+  } */
 }
