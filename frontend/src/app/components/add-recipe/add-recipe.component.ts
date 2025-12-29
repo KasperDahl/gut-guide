@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe, Ingredient } from '../../models/recipe.model';
+import { RecipeService } from '../../services/recipe.service';
 // import { RecipeService } from '../../services/recipe.service'; // TODO: Import your actual service
 
 @Component({
@@ -41,17 +42,17 @@ export class AddRecipeComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-  ) // private recipeService: RecipeService // Inject service here
+    private recipeService: RecipeService
+  )
   {
     this.recipeForm = this.fb.group({
       name: ['', Validators.required],
       instructions: this.fb.array([]),
       ingredients: this.fb.array([]),
-      servings: [1, [Validators.required, Validators.min(1)]],
-      mealType: [''],
+      servings: [0, [Validators.required, Validators.min(0)]],
+      mealType: ['', Validators.required],
       fullMeal: [false],
-      calories: [null],
-      timeToCook: [null],
+      timeToCook: [0, Validators.min(0)],
       comments: [''],
       source: [''],
       tried: [false],
@@ -130,6 +131,7 @@ export class AddRecipeComponent implements OnInit {
     if (this.isEditMode) {
       // this.recipeService.update(recipe).subscribe(...)
     } else {
+      this.recipeService.createRecipe(recipe).subscribe(response => console.log("created recipe reponse: ", response))
       // this.recipeService.create(recipe).subscribe(...)
     }
   }

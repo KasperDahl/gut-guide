@@ -30,7 +30,9 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     public Recipe createRecipe(Recipe recipe) {
-        // Implementation to create a new recipe in the database
-        return null; // Placeholder return
+        if (recipe == null) {
+            throw new IllegalArgumentException("Recipe cannot be null");
+        }
+        return recipeRepository.save(recipe);
     }
 }

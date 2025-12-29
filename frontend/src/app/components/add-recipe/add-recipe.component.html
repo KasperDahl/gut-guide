@@ -13,15 +13,11 @@
       <div class="form-row">
         <div class="form-group">
           <label for="servings">Servings</label>
-          <input id="servings" type="number" formControlName="servings" min="1">
+          <input id="servings" type="number" formControlName="servings" min="0">
         </div>
         <div class="form-group">
           <label for="timeToCook">Time (mins)</label>
-          <input id="timeToCook" type="number" formControlName="timeToCook">
-        </div>
-        <div class="form-group">
-          <label for="calories">Calories</label>
-          <input id="calories" type="number" formControlName="calories">
+          <input id="timeToCook" type="number" formControlName="timeToCook" min="0">
         </div>
       </div>
 
