@@ -35,4 +35,12 @@ public class RecipeServiceImpl implements RecipeService {
         }
         return recipeRepository.save(recipe);
     }
+
+    public boolean deleteRecipe(Long id) {
+        if (id == null) {
+            return false;
+        }
+        recipeRepository.deleteById(id);
+        return true;
+    }
 }

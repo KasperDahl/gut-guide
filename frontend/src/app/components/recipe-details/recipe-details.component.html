@@ -2,10 +2,23 @@
   <div class="recipe-detail" [ngSwitch]="true" *ngIf="recipeValue">
     <mat-card>
       <mat-card-header>
-        <mat-card-title [textContent]="recipeValue['name']"></mat-card-title>
-        <mat-card-subtitle
-          [textContent]="recipeValue['mealType']"
-        ></mat-card-subtitle>
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <mat-card-title
+              [textContent]="recipeValue['name']"
+              style="margin-bottom: 0"
+            ></mat-card-title>
+            <button
+              class="custom-button"
+              style="background-color: rgb(148, 32, 32); color: white"
+            (click)="deleteRecipe(recipeValue['id'])" >
+              Delete Recipe
+            </button>
+          </div>
+          <mat-card-subtitle
+            [textContent]="recipeValue['mealType']"
+          ></mat-card-subtitle>
+        </div>
       </mat-card-header>
       <mat-card-content>
         <div class="image-info-container">
@@ -32,7 +45,8 @@
               <mat-list-item
                 *ngFor="let ingredient of recipeValue['ingredients']"
               >
-                {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient['name'] }}
+                {{ ingredient.quantity }} {{ ingredient.unit }}
+                {{ ingredient['name'] }}
               </mat-list-item>
             </mat-list>
           </div>

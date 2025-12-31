@@ -42,9 +42,8 @@ export class AddRecipeComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private recipeService: RecipeService
-  )
-  {
+    private recipeService: RecipeService,
+  ) {
     this.recipeForm = this.fb.group({
       name: ['', Validators.required],
       instructions: this.fb.array([]),
@@ -131,7 +130,10 @@ export class AddRecipeComponent implements OnInit {
     if (this.isEditMode) {
       // this.recipeService.update(recipe).subscribe(...)
     } else {
-      this.recipeService.createRecipe(recipe).subscribe(response => console.log("Backend response from creating recipe: ", response))
+      this.recipeService.createRecipe(recipe).subscribe((response) => {
+        console.log('Backend response from creating recipe: ', response);
+        this.router.navigate(['/recipes']);
+      });
     }
   }
 

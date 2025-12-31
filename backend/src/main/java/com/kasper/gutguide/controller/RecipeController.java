@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,5 +48,16 @@ public class RecipeController {
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
         Recipe createdRecipe = recipeService.createRecipe(recipe);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdRecipe);
+    }
+
+    // DELETE a recipe by ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteRecipe(@PathVariable Long id) {
+        boolean deleted = recipeService.deleteRecipe(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
