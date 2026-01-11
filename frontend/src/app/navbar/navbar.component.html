@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
-  <span>Gut Guide</span>
+  <a class="brand-link" [routerLink]="['/home']" aria-label="Go to home page">
+    <span class="brand-name">Gut Guide</span>
+  </a>
   <span class="spacer"></span>
-  <button mat-button [routerLink]="['/home']">Home</button>
-  <button mat-button [routerLink]="['/recipes']">Recipes</button>
-  <button mat-button [routerLink]="['/about']">About</button>
+  <button mat-button [routerLink]="['/recipes']" routerLinkActive="active">Recipes</button>
+  <button mat-button [routerLink]="['/about']" routerLinkActive="active">About</button>
 </mat-toolbar>
