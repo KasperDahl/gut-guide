@@ -27,6 +27,15 @@ export class RecipeService {
     return this.http.post<Recipe>(this.baseUrl, recipe);
   }
 
+  // DELETE recipe by ID
+  deleteRecipe(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
+
+  // UPDATE recipe by ID
+
+
+
   getRecipeByName(name: string): Observable<Recipe> {
     return this.getRecipes().pipe(
       map((recipes) => {

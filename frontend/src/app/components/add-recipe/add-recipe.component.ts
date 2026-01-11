@@ -10,6 +10,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe, Ingredient } from '../../models/recipe.model';
 import { RecipeService } from '../../services/recipe.service';
+import { LookupService } from '../../services/lookup.service';
 // import { RecipeService } from '../../services/recipe.service'; // TODO: Import your actual service
 
 @Component({
@@ -25,26 +26,15 @@ export class AddRecipeComponent implements OnInit {
   recipeId?: number;
 
   // Dropdown options for units
-  units: string[] = [
-    'g',
-    'kg',
-    'ml',
-    'l',
-    'tsp',
-    'tbsp',
-    'cup',
-    'pcs',
-    'oz',
-    'lb',
-  ];
+  units: string[] = [];
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private recipeService: RecipeService
-  )
-  {
+    private recipeService: RecipeService,
+    private lookupService: LookupService
+  ) {
     this.recipeForm = this.fb.group({
       name: ['', Validators.required],
       instructions: this.fb.array([]),
@@ -56,6 +46,11 @@ export class AddRecipeComponent implements OnInit {
       comments: [''],
       source: [''],
       tried: [false],
+    });
+
+    
+    this.lookupService.getUnits().subscribe((units) => {
+      this.units = units;
     });
   }
 
@@ -131,7 +126,10 @@ export class AddRecipeComponent implements OnInit {
     if (this.isEditMode) {
       // this.recipeService.update(recipe).subscribe(...)
     } else {
-      this.recipeService.createRecipe(recipe).subscribe(response => console.log("Backend response from creating recipe: ", response))
+      this.recipeService.createRecipe(recipe).subscribe((response) => {
+        console.log('Backend response from creating recipe: ', response);
+        this.router.navigate(['/recipes']);
+      });
     }
   }
 
