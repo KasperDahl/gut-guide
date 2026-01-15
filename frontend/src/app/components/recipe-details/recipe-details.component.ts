@@ -6,14 +6,14 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteRecipeDialog } from '../dialogs/delete-recipe-dialog.component';
 
 @Component({
   selector: 'app-recipe-details',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatListModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatListModule, MatIconModule, RouterLink],
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.scss'],
 })

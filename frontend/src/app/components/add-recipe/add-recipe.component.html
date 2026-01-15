@@ -2,7 +2,7 @@
   <h2>{{ isEditMode ? 'Edit Recipe' : 'Add New Recipe' }}</h2>
 
   <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
-    
+
     <!-- Basic Info Section -->
     <div class="form-section">
       <div class="form-group">
@@ -40,28 +40,37 @@
     <!-- Ingredients Section -->
     <div class="form-section">
       <h3>Ingredients</h3>
-      <div formArrayName="ingredients">
-        <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i" class="ingredient-row">
-          
-          <div class="form-group grow-2">
-            <input type="text" formControlName="name" placeholder="Ingredient Name">
-          </div>
-          
-          <div class="form-group">
-            <!-- Decimal incrementer using step="0.1" -->
-            <input type="number" formControlName="quantity" placeholder="Qty" step="0.1" min="0">
-          </div>
-          
-          <div class="form-group">
-            <select formControlName="unit">
-              <option *ngFor="let u of units" [value]="u">{{ u }}</option>
-            </select>
-          </div>
+      <p class="drag-hint">Drag items to reorder</p>
+      <div formArrayName="ingredients" cdkDropList (cdkDropListDropped)="dropIngredient($event)" class="drop-list">
+        @for (ingredient of ingredients.controls; track ingredient; let i = $index) {
+          <div [formGroupName]="i" class="ingredient-row" cdkDrag>
+            <span class="drag-handle" cdkDragHandle>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+              </svg>
+            </span>
 
-          <button type="button" class="btn-remove" (click)="removeIngredient(i)" title="Remove Ingredient">
-            &times;
-          </button>
-        </div>
+            <div class="form-group grow-2">
+              <input type="text" formControlName="name" placeholder="Ingredient Name">
+            </div>
+
+            <div class="form-group">
+              <input type="number" formControlName="quantity" placeholder="Qty" step="0.1" min="0">
+            </div>
+
+            <div class="form-group">
+              <select formControlName="unit">
+                @for (u of units; track u) {
+                  <option [value]="u">{{ u }}</option>
+                }
+              </select>
+            </div>
+
+            <button type="button" class="btn-remove" (click)="removeIngredient(i)" title="Remove Ingredient">
+              &times;
+            </button>
+          </div>
+        }
       </div>
       <button type="button" class="btn-add" (click)="addIngredient()">+ Add Ingredient</button>
     </div>
@@ -69,14 +78,22 @@
     <!-- Instructions Section -->
     <div class="form-section">
       <h3>Instructions</h3>
-      <div formArrayName="instructions">
-        <div *ngFor="let instruction of instructions.controls; let i = index" class="instruction-row">
-          <span class="step-number">{{ i + 1 }}.</span>
-          <textarea [formControlName]="i" rows="2" placeholder="Describe this step..."></textarea>
-          <button type="button" class="btn-remove" (click)="removeInstruction(i)" title="Remove Step">
-            &times;
-          </button>
-        </div>
+      <p class="drag-hint">Drag items to reorder</p>
+      <div formArrayName="instructions" cdkDropList (cdkDropListDropped)="dropInstruction($event)" class="drop-list">
+        @for (instruction of instructions.controls; track instruction; let i = $index) {
+          <div class="instruction-row" cdkDrag>
+            <span class="drag-handle" cdkDragHandle>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+              </svg>
+            </span>
+            <span class="step-number">{{ i + 1 }}.</span>
+            <textarea [formControlName]="i" rows="2" placeholder="Describe this step..."></textarea>
+            <button type="button" class="btn-remove" (click)="removeInstruction(i)" title="Remove Step">
+              &times;
+            </button>
+          </div>
+        }
       </div>
       <button type="button" class="btn-add" (click)="addInstruction()">+ Add Step</button>
     </div>
@@ -94,45 +111,9 @@
     </div>
 
     <div class="form-actions">
-      <button type="submit" class="btn-save" [disabled]="recipeForm.invalid">Save Recipe</button>
+      <button type="submit" class="btn-save" [disabled]="isSaveDisabled">
+        {{ isEditMode ? 'Update Recipe' : 'Save Recipe' }}
+      </button>
     </div>
   </form>
 </div>
-
-
-<!-- <form [formGroup]="recipeForm">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>
-        <h1>Add New Recipe</h1>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div>
-        <mat-form-field>
-          <mat-label>Recipe Name</mat-label>
-          <input
-            matInput
-            formControlName="name"
-            placeholder="Enter recipe name"
-          />
-        </mat-form-field>
-      </div>
-      <div>
-        <h3>Instructions</h3>
-        <div *ngFor="let instruction of instructions; let i=index" class="form-row">
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Step {{i + 1}}</mat-label>
-            <input matInput [formControlName]="i" placeholder="Enter instruction">
-          </mat-form-field>
-          <button mat-icon-button color="warn" type="button" (click)="removeInstruction(i)" *ngIf="instructions.length > 1">
-          </button>
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button class="custom-button" type="submit">Save Recipe</button>
-      <button class="custom-button" type="button">Discard</button>
-    </mat-card-actions>
-  </mat-card>
-</form> -->

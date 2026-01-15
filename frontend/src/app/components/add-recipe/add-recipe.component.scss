@@ -53,12 +53,32 @@ label {
 // Input styling is handled globally in main.scss
 // These are just overrides for specific contexts
 
+// Drag hint text
+.drag-hint {
+  font-size: 0.875rem;
+  color: $color-text-muted;
+  margin-bottom: $spacing-sm;
+}
+
+// Drop list container
+.drop-list {
+  min-height: 50px;
+}
+
 // Ingredient Row Styling
 .ingredient-row {
   display: flex;
   gap: $spacing-sm;
   align-items: flex-start;
   margin-bottom: $spacing-sm;
+  background-color: $color-background;
+  padding: $spacing-xs;
+  border-radius: $border-radius-sm;
+  transition: box-shadow $transition-normal, background-color $transition-normal;
+
+  &:hover {
+    background-color: $color-surface;
+  }
 }
 
 .grow-2 {
@@ -71,6 +91,14 @@ label {
   gap: $spacing-sm;
   align-items: flex-start;
   margin-bottom: $spacing-sm;
+  background-color: $color-background;
+  padding: $spacing-xs;
+  border-radius: $border-radius-sm;
+  transition: box-shadow $transition-normal, background-color $transition-normal;
+
+  &:hover {
+    background-color: $color-surface;
+  }
 
   textarea {
     flex: 1;
@@ -82,6 +110,54 @@ label {
   font-weight: bold;
   min-width: 24px;
   color: $color-primary;
+}
+
+// Drag handle styling
+.drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xs;
+  padding-top: 12px;
+  cursor: grab;
+  color: $color-text-muted;
+  transition: color $transition-normal;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+// CDK Drag and Drop styles
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-lg;
+  background-color: $color-background;
+  padding: $spacing-xs;
+  display: flex;
+  gap: $spacing-sm;
+  align-items: flex-start;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.3;
+  background-color: $color-surface;
+  border: 2px dashed $color-border;
+  border-radius: $border-radius-sm;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.drop-list.cdk-drop-list-dragging .ingredient-row:not(.cdk-drag-placeholder),
+.drop-list.cdk-drop-list-dragging .instruction-row:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 // Buttons - using the button system mixins

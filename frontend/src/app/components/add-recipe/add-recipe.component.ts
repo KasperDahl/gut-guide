@@ -8,22 +8,23 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Recipe, Ingredient } from '../../models/recipe.model';
 import { RecipeService } from '../../services/recipe.service';
 import { LookupService } from '../../services/lookup.service';
-// import { RecipeService } from '../../services/recipe.service'; // TODO: Import your actual service
 
 @Component({
   selector: 'app-add-recipe',
   templateUrl: './add-recipe.component.html',
   styleUrls: ['./add-recipe.component.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, DragDropModule],
 })
 export class AddRecipeComponent implements OnInit {
   recipeForm: FormGroup;
   isEditMode = false;
   recipeId?: number;
+  isFormDirty = false;
 
   // Dropdown options for units
   units: string[] = [];
@@ -48,7 +49,6 @@ export class AddRecipeComponent implements OnInit {
       tried: [false],
     });
 
-    
     this.lookupService.getUnits().subscribe((units) => {
       this.units = units;
     });
@@ -60,13 +60,17 @@ export class AddRecipeComponent implements OnInit {
       if (params['id']) {
         this.isEditMode = true;
         this.recipeId = +params['id'];
-        // TODO: Call service to get recipe by ID and populate form
-        // this.loadRecipe(this.recipeId);
+        this.loadRecipe(this.recipeId);
       } else {
         // Initialize with one empty row for new recipes
         this.addInstruction();
         this.addIngredient();
       }
+    });
+
+    // Track form changes after initial load
+    this.recipeForm.valueChanges.subscribe(() => {
+      this.isFormDirty = true;
     });
   }
 
@@ -106,6 +110,48 @@ export class AddRecipeComponent implements OnInit {
     this.ingredients.removeAt(index);
   }
 
+  // --- Drag and Drop ---
+  dropInstruction(event: CdkDragDrop<string[]>): void {
+    const instructionControls = this.instructions.controls;
+    moveItemInArray(instructionControls, event.previousIndex, event.currentIndex);
+    this.instructions.setValue(instructionControls.map(c => c.value));
+    this.isFormDirty = true;
+  }
+
+  dropIngredient(event: CdkDragDrop<FormGroup[]>): void {
+    const ingredientControls = this.ingredients.controls;
+    moveItemInArray(ingredientControls, event.previousIndex, event.currentIndex);
+    this.ingredients.setValue(ingredientControls.map(c => c.value));
+    this.isFormDirty = true;
+  }
+
+  // --- Load Recipe for Edit Mode ---
+  private loadRecipe(id: number): void {
+    this.recipeService.getRecipeById(id).subscribe((recipe: Recipe) => {
+      this.recipeForm.patchValue({
+        name: recipe.name,
+        servings: recipe.servings,
+        mealType: recipe.mealType,
+        fullMeal: recipe.fullMeal,
+        timeToCook: recipe.timeToCook,
+        comments: recipe.comments || '',
+        source: recipe.source || '',
+        tried: recipe.tried,
+      });
+
+      // Clear and repopulate instructions
+      this.instructions.clear();
+      recipe.instructions.forEach((inst) => this.addInstruction(inst));
+
+      // Clear and repopulate ingredients
+      this.ingredients.clear();
+      recipe.ingredients.forEach((ing) => this.addIngredient(ing));
+
+      // Reset dirty flag after loading
+      this.isFormDirty = false;
+    });
+  }
+
   // --- Submission ---
   onSubmit(): void {
     if (this.recipeForm.invalid) {
@@ -123,27 +169,34 @@ export class AddRecipeComponent implements OnInit {
 
     console.log('Submitting Recipe:', recipe);
 
-    if (this.isEditMode) {
-      // this.recipeService.update(recipe).subscribe(...)
+    if (this.isEditMode && this.recipeId) {
+      this.recipeService.updateRecipe(this.recipeId, recipe).subscribe({
+        next: (response) => {
+          console.log('Backend response from updating recipe: ', response);
+          this.router.navigate(['/recipe', response.name]);
+        },
+        error: (err) => {
+          console.error('Error updating recipe:', err);
+        }
+      });
     } else {
-      this.recipeService.createRecipe(recipe).subscribe((response) => {
-        console.log('Backend response from creating recipe: ', response);
-        this.router.navigate(['/recipes']);
+      this.recipeService.createRecipe(recipe).subscribe({
+        next: (response) => {
+          console.log('Backend response from creating recipe: ', response);
+          this.router.navigate(['/recipes']);
+        },
+        error: (err) => {
+          console.error('Error creating recipe:', err);
+        }
       });
     }
   }
 
-  /* Helper to populate form when editing
-  private loadRecipe(id: number) {
-    this.recipeService.getRecipe(id).subscribe((data: Recipe) => {
-      this.recipeForm.patchValue(data);
-      
-      // Clear and repopulate arrays
-      this.instructions.clear();
-      data.instructions.forEach(inst => this.addInstruction(inst));
-      
-      this.ingredients.clear();
-      data.ingredients.forEach(ing => this.addIngredient(ing));
-    });
-  } */
+  // --- Check if save should be disabled ---
+  get isSaveDisabled(): boolean {
+    if (this.isEditMode) {
+      return this.recipeForm.invalid || !this.isFormDirty;
+    }
+    return this.recipeForm.invalid;
+  }
 }

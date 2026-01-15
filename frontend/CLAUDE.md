@@ -59,6 +59,7 @@ ng [command] --help
 - `/recipes` - Recipe listing page
 - `/recipe/:name` - Recipe details (uses recipe name as parameter)
 - `/add-recipe` - Add new recipe form
+- `/edit-recipe/:id` - Edit existing recipe (reuses AddRecipeComponent)
 - `/about` - About page
 
 ### Data Flow
@@ -72,7 +73,7 @@ ng [command] --help
 
 **RecipeService** (`src/app/services/recipe.service.ts`)
 - Base URL: `http://localhost:8080/api/recipes`
-- Methods: `getRecipes()`, `getRecipeById(id)`, `getRecipeByName(name)`, `createRecipe(recipe)`, `deleteRecipe(id)`
+- Methods: `getRecipes()`, `getRecipeById(id)`, `getRecipeByName(name)`, `createRecipe(recipe)`, `updateRecipe(id, recipe)`, `deleteRecipe(id)`
 - Note: `getRecipeByName()` fetches all recipes then filters client-side (consider optimizing if dataset grows)
 
 **LookupService** (`src/app/services/lookup.service.ts`)
@@ -165,6 +166,7 @@ The frontend expects a Spring Boot backend running on `http://localhost:8080` wi
 - `GET /api/recipes` - Get all recipes
 - `GET /api/recipes/{id}` - Get recipe by ID
 - `POST /api/recipes` - Create new recipe
+- `PUT /api/recipes/{id}` - Update existing recipe
 - `DELETE /api/recipes/{id}` - Delete recipe
 - `GET /api/lookup/units` - Get available units of measurement
 
@@ -194,6 +196,17 @@ The `AddRecipeComponent` demonstrates the pattern for complex forms:
 - Use `ReactiveFormsModule` with `FormBuilder`
 - Use `FormArray` for dynamic lists (ingredients, instructions)
 - Validate on submit with `markAllAsTouched()`
+- Supports both add and edit modes (determined by route parameter `id`)
+- In edit mode, the Save button is disabled until changes are made (`isFormDirty` flag)
+
+### Drag and Drop Reordering
+
+The `AddRecipeComponent` uses Angular CDK's `DragDropModule` for reordering ingredients and instructions:
+- Import `DragDropModule` from `@angular/cdk/drag-drop`
+- Use `cdkDropList` directive on the container
+- Use `cdkDrag` directive on draggable items
+- Use `cdkDragHandle` for the drag handle element
+- Handle reorder with `(cdkDropListDropped)` event and `moveItemInArray()` utility
 
 ### Making API Calls
 

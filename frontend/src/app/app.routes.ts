@@ -11,5 +11,6 @@ export const routes: Routes = [
     { path: 'recipe/:name', component: RecipeDetailsComponent },
     { path: 'about', component: AboutComponent },
     { path: 'add-recipe', component: AddRecipeComponent },
+    { path: 'edit-recipe/:id', component: AddRecipeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' } // Redirect to home on empty path
 ];
