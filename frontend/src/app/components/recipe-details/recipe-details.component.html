@@ -1,23 +1,16 @@
 <ng-container *ngIf="recipe$ | async as recipeValue">
-  <div class="recipe-detail" [ngSwitch]="true" *ngIf="recipeValue">
+  <div class="recipe-detail" *ngIf="recipeValue">
     <mat-card>
       <mat-card-header>
-        <div>
-          <div style="display: flex; align-items: center; gap: 10px">
-            <mat-card-title
-              [textContent]="recipeValue['name']"
-              style="margin-bottom: 0"
-            ></mat-card-title>
-            <button
-              class="custom-button"
-              style="background-color: rgb(148, 32, 32); color: white"
-            (click)="deleteRecipe(recipeValue['id'])" >
-              Delete Recipe
-            </button>
+        <div class="header-content">
+          <div class="header-info">
+            <mat-card-title>{{ recipeValue.name }}</mat-card-title>
+            <mat-card-subtitle>{{ recipeValue.mealType }}</mat-card-subtitle>
           </div>
-          <mat-card-subtitle
-            [textContent]="recipeValue['mealType']"
-          ></mat-card-subtitle>
+          <button class="btn-danger" (click)="deleteRecipe(recipeValue.id)">
+            <mat-icon>delete</mat-icon>
+            Delete Recipe
+          </button>
         </div>
       </mat-card-header>
       <mat-card-content>
@@ -26,42 +19,40 @@
             <img
               mat-card-image
               src="assets/placeholder-image.jpg"
-              [alt]="recipeValue['name']"
+              [alt]="recipeValue.name"
             />
             <div class="time-servings">
               <p>
                 <mat-icon>timer</mat-icon>
-                {{ recipeValue['timeToCook'] }} minutes
+                {{ recipeValue.timeToCook }} minutes
               </p>
               <p>
-                <mat-icon>people</mat-icon> Servings:
-                {{ recipeValue['servings'] }}
+                <mat-icon>people</mat-icon>
+                {{ recipeValue.servings }} servings
               </p>
             </div>
           </div>
           <div class="ingredients-container">
             <h3>Ingredients</h3>
             <mat-list>
-              <mat-list-item
-                *ngFor="let ingredient of recipeValue['ingredients']"
-              >
+              <mat-list-item *ngFor="let ingredient of recipeValue.ingredients">
                 {{ ingredient.quantity }} {{ ingredient.unit }}
-                {{ ingredient['name'] }}
+                {{ ingredient.name }}
               </mat-list-item>
             </mat-list>
           </div>
         </div>
         <h3>Instructions</h3>
         <ol>
-          <li *ngFor="let instruction of recipeValue['instructions']">
+          <li *ngFor="let instruction of recipeValue.instructions">
             {{ instruction }}
           </li>
         </ol>
-        <p *ngIf="recipeValue['comments']">
-          <strong>Comments:</strong> {{ recipeValue['comments'] }}
+        <p *ngIf="recipeValue.comments">
+          <strong>Comments:</strong> {{ recipeValue.comments }}
         </p>
-        <p *ngIf="recipeValue['source']">
-          <strong>Source:</strong> {{ recipeValue['source'] }}
+        <p *ngIf="recipeValue.source">
+          <strong>Source:</strong> {{ recipeValue.source }}
         </p>
       </mat-card-content>
     </mat-card>

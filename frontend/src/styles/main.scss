@@ -4,14 +4,193 @@
 @use 'buttons' as buttons;
 @use 'layout' as layout;
 
-// Include Angular Material core styles
+// ============================================
+// MAIN STYLESHEET
+// ============================================
+// This is the entry point for all global styles.
+// Includes Angular Material theming and component overrides.
+// ============================================
+
+// --------------------------------------------
+// ANGULAR MATERIAL CORE
+// --------------------------------------------
+
 @include mat.elevation-classes();
 @include mat.app-background();
 
-// Include theme styles for Angular Material
+// Include theme styles for all Angular Material components
 @include mat.all-component-themes(vars.$gut-guide-theme);
 
-// Include custom button styles
+// Include custom typography
+@include mat.typography-hierarchy(type.$gut-guide-typography);
+
+// Include custom button styles (legacy support)
 @include buttons.custom-button(vars.$gut-guide-theme);
 
-// You can add any additional global styles here
+// --------------------------------------------
+// MATERIAL COMPONENT OVERRIDES
+// --------------------------------------------
+// Apply rounded corners and custom styling to Material components
+// to match our design system.
+
+// Cards - Apply rounded corners
+.mat-mdc-card {
+  border-radius: vars.$border-radius-lg !important;
+  overflow: hidden;
+}
+
+// Buttons - Apply rounded corners
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button,
+.mat-mdc-unelevated-button {
+  border-radius: vars.$border-radius !important;
+}
+
+// Icon Buttons - Slightly smaller radius
+.mat-mdc-icon-button {
+  border-radius: vars.$border-radius-sm !important;
+}
+
+// FAB Buttons - Keep circular
+.mat-mdc-fab,
+.mat-mdc-mini-fab {
+  border-radius: vars.$border-radius-full !important;
+}
+
+// Toolbar - Subtle shadow for depth
+.mat-toolbar {
+  box-shadow: vars.$shadow-sm;
+}
+
+// Dialog - Rounded corners
+.mat-mdc-dialog-container {
+  border-radius: vars.$border-radius-lg !important;
+}
+
+// Menu - Rounded corners
+.mat-mdc-menu-panel {
+  border-radius: vars.$border-radius !important;
+}
+
+// Snackbar - Rounded corners
+.mat-mdc-snack-bar-container {
+  border-radius: vars.$border-radius !important;
+}
+
+// Chips - Fully rounded
+.mat-mdc-chip {
+  border-radius: vars.$border-radius-full !important;
+}
+
+// Form Fields - Rounded corners
+.mat-mdc-form-field {
+  .mdc-text-field {
+    border-radius: vars.$border-radius !important;
+  }
+}
+
+// Select Panel - Rounded corners
+.mat-mdc-select-panel {
+  border-radius: vars.$border-radius !important;
+}
+
+// Autocomplete Panel - Rounded corners
+.mat-mdc-autocomplete-panel {
+  border-radius: vars.$border-radius !important;
+}
+
+// --------------------------------------------
+// GLOBAL FORM STYLING
+// --------------------------------------------
+// Consistent styling for HTML form elements
+
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  font-family: Georgia, 'Times New Roman', serif;
+  border: 1px solid vars.$color-border;
+  border-radius: vars.$border-radius;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border-color vars.$transition-fast, box-shadow vars.$transition-fast;
+  background-color: vars.$color-background;
+  color: vars.$color-text;
+
+  &:focus {
+    outline: none;
+    border-color: vars.$color-primary;
+    box-shadow: 0 0 0 3px rgba(vars.$color-primary, 0.1);
+  }
+
+  &::placeholder {
+    color: vars.$color-text-muted;
+  }
+
+  &:disabled {
+    background-color: vars.$color-surface;
+    cursor: not-allowed;
+  }
+}
+
+// Checkbox and Radio styling
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: vars.$color-primary;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+// Select dropdown arrow fix
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+// --------------------------------------------
+// FORM VALIDATION STATES
+// --------------------------------------------
+
+// Invalid state (touched and invalid)
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: vars.$color-warn;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(vars.$color-warn, 0.1);
+  }
+}
+
+// Error message styling
+.error-message {
+  color: vars.$color-warn;
+  font-size: 0.875rem;
+  margin-top: vars.$spacing-xs;
+}
+
+// Required field indicator
+label.required::after {
+  content: ' *';
+  color: vars.$color-warn;
+}
+
+// --------------------------------------------
+// ACCESSIBILITY
+// --------------------------------------------
+
+// Ensure focus is visible for keyboard navigation
+*:focus-visible {
+  outline: 2px solid vars.$color-primary;
+  outline-offset: 2px;
+}
+
+// Skip focus outline for mouse users on non-interactive elements
+*:focus:not(:focus-visible) {
+  outline: none;
+}

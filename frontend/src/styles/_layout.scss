@@ -1,30 +1,149 @@
 @use 'variables' as vars;
 
+// ============================================
+// LAYOUT SYSTEM
+// ============================================
+// Container, flexbox, grid, spacing, and responsive utilities
+// Desktop-first responsive design (use max-width for breakpoints)
+// ============================================
+
+// --------------------------------------------
+// BASE STYLES
+// --------------------------------------------
+
 html, body {
   height: 100%;
   margin: 0;
+  background-color: vars.$color-surface;
 }
+
+// --------------------------------------------
+// CONTAINERS
+// --------------------------------------------
 
 .container {
   max-width: vars.$container-width;
   margin: 0 auto;
-  padding: 0 vars.$spacing-unit;
+  padding: 0 vars.$spacing-md;
 }
 
-// Add any other global layout classes
-.flex {
-  display: flex;
+.container-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 vars.$spacing-md;
 }
 
-.grid {
-  display: grid;
+// --------------------------------------------
+// FLEXBOX UTILITIES
+// --------------------------------------------
+
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.justify-start { justify-content: flex-start; }
+
+.gap-xs { gap: vars.$spacing-xs; }
+.gap-sm { gap: vars.$spacing-sm; }
+.gap-md { gap: vars.$spacing-md; }
+.gap-lg { gap: vars.$spacing-lg; }
+.gap-xl { gap: vars.$spacing-xl; }
+
+// --------------------------------------------
+// GRID UTILITIES
+// --------------------------------------------
+
+.grid { display: grid; }
+
+// --------------------------------------------
+// SPACING UTILITIES
+// --------------------------------------------
+
+// Margin
+.m-0 { margin: 0; }
+.mt-sm { margin-top: vars.$spacing-sm; }
+.mt-md { margin-top: vars.$spacing-md; }
+.mt-lg { margin-top: vars.$spacing-lg; }
+.mb-sm { margin-bottom: vars.$spacing-sm; }
+.mb-md { margin-bottom: vars.$spacing-md; }
+.mb-lg { margin-bottom: vars.$spacing-lg; }
+.my-md { margin-top: vars.$spacing-md; margin-bottom: vars.$spacing-md; }
+.my-lg { margin-top: vars.$spacing-lg; margin-bottom: vars.$spacing-lg; }
+
+// Padding
+.p-0 { padding: 0; }
+.p-sm { padding: vars.$spacing-sm; }
+.p-md { padding: vars.$spacing-md; }
+.p-lg { padding: vars.$spacing-lg; }
+.p-xl { padding: vars.$spacing-xl; }
+.py-md { padding-top: vars.$spacing-md; padding-bottom: vars.$spacing-md; }
+.py-lg { padding-top: vars.$spacing-lg; padding-bottom: vars.$spacing-lg; }
+.px-md { padding-left: vars.$spacing-md; padding-right: vars.$spacing-md; }
+.px-lg { padding-left: vars.$spacing-lg; padding-right: vars.$spacing-lg; }
+
+// --------------------------------------------
+// SURFACE & CARD UTILITIES
+// --------------------------------------------
+
+.surface {
+  background-color: vars.$color-background;
+  border-radius: vars.$border-radius;
+  box-shadow: vars.$shadow-sm;
 }
 
-// You might want to add some responsive mixins
+.surface-elevated {
+  background-color: vars.$color-background;
+  border-radius: vars.$border-radius-lg;
+  box-shadow: vars.$shadow-md;
+}
+
+// --------------------------------------------
+// BORDER RADIUS UTILITIES
+// --------------------------------------------
+
+.rounded { border-radius: vars.$border-radius; }
+.rounded-sm { border-radius: vars.$border-radius-sm; }
+.rounded-lg { border-radius: vars.$border-radius-lg; }
+.rounded-xl { border-radius: vars.$border-radius-xl; }
+.rounded-full { border-radius: vars.$border-radius-full; }
+
+// --------------------------------------------
+// RESPONSIVE MIXINS
+// --------------------------------------------
+// Desktop-first: use max-width for breakpoints
+
 @mixin respond-to($breakpoint) {
   @if map-has-key(vars.$breakpoints, $breakpoint) {
-    @media (min-width: map-get(vars.$breakpoints, $breakpoint)) {
+    @media (max-width: map-get(vars.$breakpoints, $breakpoint)) {
       @content;
     }
+  }
+}
+
+// Common breakpoint mixins for convenience
+@mixin respond-to-tablet {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin respond-to-mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin respond-to-small {
+  @media (max-width: 576px) {
+    @content;
   }
 }

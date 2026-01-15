@@ -1,51 +1,153 @@
-@use '@angular/material' as mat;
 @use 'index' as *;
 
+.recipe-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+}
+
+.mat-mdc-card {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+}
+
+mat-card-header {
+  padding: $spacing-lg;
+  background-color: $color-surface;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.header-info {
+  flex: 1;
+}
+
+mat-card-title {
+  font-size: 2rem;
+  color: $color-text;
+  margin-bottom: $spacing-xs !important;
+}
+
+mat-card-subtitle {
+  color: $color-text-muted;
+  font-size: 1rem;
+}
+
+mat-card-content {
+  padding: $spacing-lg;
+}
+
 .image-info-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .image-container {
-    flex: 2;
-    margin-right: 20px;
-  }
-  
-  .ingredients-container {
-    flex: 1;
-  }
-  
-  .image-container img {
-    max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+}
+
+.image-container {
+  flex: 2;
+  min-width: 300px;
+
+  img {
+    border-radius: $border-radius;
+    width: 100%;
     height: auto;
   }
-  
-  .time-servings {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 10px;
+}
+
+.ingredients-container {
+  flex: 1;
+  min-width: 200px;
+  background-color: $color-surface;
+  border-radius: $border-radius;
+  padding: $spacing-md;
+
+  h3 {
+    margin-top: 0;
+    color: $color-text;
   }
-  
-  .time-servings p {
+}
+
+.time-servings {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: $spacing-md;
+  padding: $spacing-md;
+  background-color: $color-surface;
+  border-radius: $border-radius;
+
+  p {
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    color: $color-text-muted;
   }
-  
-  @media (max-width: 768px) {
-    .image-info-container {
-      flex-direction: column;
-    }
-  
-    .image-container, .ingredients-container {
-      flex: unset;
-      margin-right: 0;
-    }
-  
-    .time-servings {
-      flex-direction: row;
-      justify-content: flex-start;
-    }
-  
-    .time-servings p {
-      margin-right: 20px;
+
+  mat-icon {
+    color: $color-primary;
+  }
+}
+
+h3 {
+  color: $color-text;
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-md;
+}
+
+ol {
+  padding-left: $spacing-lg;
+
+  li {
+    margin-bottom: $spacing-sm;
+    line-height: 1.6;
+    color: $color-text;
+  }
+}
+
+// Delete button using danger variant
+.btn-danger {
+  @include button-danger;
+}
+
+// Comments and source styling
+p strong {
+  color: $color-text;
+}
+
+@media (max-width: 768px) {
+  .image-info-container {
+    flex-direction: column;
+  }
+
+  .image-container,
+  .ingredients-container {
+    flex: unset;
+    min-width: unset;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+
+    .btn-danger {
+      width: 100%;
     }
   }
+
+  .time-servings {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: $spacing-lg;
+  }
+
+  mat-card-title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,24 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../../models/recipe.model';
-import { RecipeService } from '../../services/recipe.service';
-import { Observable, of } from 'rxjs';
-import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatIconModule } from '@angular/material/icon';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+
+import { Recipe } from '../../models/recipe.model';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
     selector: 'app-recipes',
     standalone: true,
-    imports: [CommonModule, MatCardModule, MatGridListModule, MatIconModule, RouterModule],
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatCardModule,
+        MatIconModule,
+    ],
     templateUrl: './recipes.component.html',
     styleUrl: './recipes.component.scss'
 })
 export class RecipesComponent {
-  recipes$: Observable<Recipe[]>;
+    recipes$: Observable<Recipe[]>;
 
-  constructor(private recipeService: RecipeService) {
-    this.recipes$ = this.recipeService.getRecipes();
-  }
+    // Prepared for future filtering/sorting
+    searchTerm: string = '';
+    selectedMealType: string = '';
+
+    constructor(private recipeService: RecipeService) {
+        this.recipes$ = this.recipeService.getRecipes();
+    }
 }

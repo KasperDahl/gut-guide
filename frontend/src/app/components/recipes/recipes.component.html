@@ -1,35 +1,61 @@
-<div class="header">
-  <h1>Here you can find all recipes</h1>
-  <button class="custom-button" [routerLink]="['/add-recipe']">
-    Add Recipe
-  </button>
-</div>
+<div class="recipes-container">
+  <div class="header">
+    <h1>All Recipes</h1>
+    <a class="btn-primary" [routerLink]="['/add-recipe']">
+      <mat-icon>add</mat-icon>
+      Add Recipe
+    </a>
+  </div>
 
-<mat-grid-list cols="3" rowHeight="1:1.2">
-  @for (recipe of recipes$ | async; track recipe) {
-    <mat-grid-tile>
-      <a [routerLink]="['/recipe', recipe.name]" class="recipe-link">
+  <!-- Future: Filter/Sort Controls placeholder -->
+  <!--
+  <div class="filter-controls">
+    <input type="text" placeholder="Search recipes..." [(ngModel)]="searchTerm">
+    <select [(ngModel)]="selectedMealType">
+      <option value="">All Meal Types</option>
+      <option value="Breakfast">Breakfast</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Dinner">Dinner</option>
+      <option value="Snack">Snack</option>
+    </select>
+  </div>
+  -->
+
+  <div class="recipe-grid">
+    @for (recipe of recipes$ | async; track recipe.id) {
+      <a [routerLink]="['/recipe', recipe.name]" class="recipe-card-link">
         <mat-card class="recipe-card">
-          <mat-card-header>
-            <mat-card-title-group>
-              <mat-card-title class="recipe-title">{{
-                recipe.name
-              }}</mat-card-title>
-              <mat-card-subtitle>{{ recipe.mealType }}</mat-card-subtitle>
-            </mat-card-title-group>
-          </mat-card-header>
           <img
             mat-card-image
             src="assets/placeholder-image.jpg"
-            alt="{{ recipe.name }}"
-            />
-            <mat-card-footer>
-              <p class="cook-time">
-                <mat-icon>timer</mat-icon> {{ recipe.timeToCook }} minutes
-              </p>
-            </mat-card-footer>
-          </mat-card>
+            [alt]="recipe.name"
+            class="recipe-image"
+          />
+          <mat-card-content>
+            <h3 class="recipe-title">{{ recipe.name }}</h3>
+            <span class="recipe-meal-type">{{ recipe.mealType }}</span>
+            <div class="recipe-meta">
+              <span class="meta-item">
+                <mat-icon>timer</mat-icon>
+                {{ recipe.timeToCook }} min
+              </span>
+              <span class="meta-item">
+                <mat-icon>people</mat-icon>
+                {{ recipe.servings }} servings
+              </span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    } @empty {
+      <div class="empty-state">
+        <mat-icon>restaurant</mat-icon>
+        <h3>No recipes yet</h3>
+        <p>Start building your recipe collection!</p>
+        <a [routerLink]="['/add-recipe']" class="btn-primary">
+          Add Your First Recipe
         </a>
-      </mat-grid-tile>
+      </div>
     }
-  </mat-grid-list>
+  </div>
+</div>

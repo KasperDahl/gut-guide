@@ -1,20 +1,229 @@
 @use '@angular/material' as mat;
+@use 'variables' as vars;
+
+// ============================================
+// BUTTON SYSTEM
+// ============================================
+// Variants: Primary, Secondary, Tertiary, Danger
+// Sizes: Small, Medium (default), Large
+// Special: Add (dashed), Icon (square)
+// ============================================
+
+// --------------------------------------------
+// BASE BUTTON MIXIN
+// --------------------------------------------
+// Applied to all button variants
+
+@mixin button-base {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: vars.$border-radius;
+  cursor: pointer;
+  transition: all vars.$transition-normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid vars.$color-primary;
+    outline-offset: 2px;
+  }
+}
+
+// --------------------------------------------
+// SIZE MIXINS
+// --------------------------------------------
+
+@mixin button-small {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+@mixin button-medium {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+@mixin button-large {
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+// --------------------------------------------
+// VARIANT MIXINS
+// --------------------------------------------
+
+// Primary Button - Filled, high emphasis
+@mixin button-primary {
+  @include button-base;
+  @include button-medium;
+  background-color: vars.$color-primary;
+  color: #ffffff;
+
+  &:hover:not(:disabled) {
+    background-color: vars.$color-primary-dark;
+    box-shadow: vars.$shadow-md;
+  }
+
+  &:active:not(:disabled) {
+    background-color: vars.$color-primary-dark;
+    transform: translateY(1px);
+  }
+}
+
+// Secondary Button - Outlined, medium emphasis
+@mixin button-secondary {
+  @include button-base;
+  @include button-medium;
+  background-color: transparent;
+  color: vars.$color-primary;
+  border: 2px solid vars.$color-primary;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(vars.$color-primary, 0.08);
+  }
+
+  &:active:not(:disabled) {
+    background-color: rgba(vars.$color-primary, 0.12);
+  }
+}
+
+// Tertiary Button - Text only, low emphasis
+@mixin button-tertiary {
+  @include button-base;
+  @include button-medium;
+  background-color: transparent;
+  color: vars.$color-primary;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(vars.$color-primary, 0.08);
+  }
+
+  &:active:not(:disabled) {
+    background-color: rgba(vars.$color-primary, 0.12);
+  }
+}
+
+// Danger Button - For destructive actions
+@mixin button-danger {
+  @include button-base;
+  @include button-medium;
+  background-color: vars.$color-warn;
+  color: #ffffff;
+
+  &:hover:not(:disabled) {
+    background-color: #dc2626; // Darker red (warn-600)
+    box-shadow: vars.$shadow-md;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+}
+
+// Danger Outline variant
+@mixin button-danger-outline {
+  @include button-base;
+  @include button-medium;
+  background-color: transparent;
+  color: vars.$color-warn;
+  border: 2px solid vars.$color-warn;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(vars.$color-warn, 0.08);
+  }
+}
+
+// Add Button - Dashed outline for "add new" actions
+@mixin button-add {
+  @include button-base;
+  @include button-medium;
+  background: none;
+  border: 2px dashed vars.$color-border;
+  color: vars.$color-text-muted;
+  width: 100%;
+
+  &:hover:not(:disabled) {
+    border-color: vars.$color-secondary;
+    background-color: vars.$color-surface;
+    color: vars.$color-text;
+  }
+}
+
+// Icon Button - For remove/close actions
+@mixin button-icon {
+  @include button-base;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: vars.$border-radius-sm;
+  background-color: rgba(vars.$color-warn, 0.1);
+  color: vars.$color-warn;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(vars.$color-warn, 0.2);
+  }
+}
+
+// --------------------------------------------
+// CSS CLASSES
+// --------------------------------------------
+// Use these directly in templates
+
+.btn-primary {
+  @include button-primary;
+}
+
+.btn-secondary {
+  @include button-secondary;
+}
+
+.btn-tertiary {
+  @include button-tertiary;
+}
+
+.btn-danger {
+  @include button-danger;
+}
+
+.btn-danger-outline {
+  @include button-danger-outline;
+}
+
+.btn-add {
+  @include button-add;
+}
+
+.btn-icon {
+  @include button-icon;
+}
+
+// Size modifiers
+.btn-sm {
+  @include button-small;
+}
+
+.btn-lg {
+  @include button-large;
+}
+
+// --------------------------------------------
+// LEGACY SUPPORT
+// --------------------------------------------
+// Maintains compatibility with existing .custom-button usage
 
 @mixin custom-button($theme) {
-  $primary: map-get($theme, primary);
-
   .custom-button {
-    @include mat.button-typography($theme);
-    background-color: mat.m2-get-color-from-palette($primary);
-    color: mat.m2-get-color-from-palette($primary, 'default-contrast');
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    &:hover {
-      background-color: mat.m2-get-color-from-palette($primary, 700);
-    }
+    @include button-primary;
   }
 }
