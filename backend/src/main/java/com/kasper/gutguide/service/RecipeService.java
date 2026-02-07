@@ -7,10 +7,12 @@ import com.kasper.gutguide.model.entity.Recipe;
 
 public interface RecipeService {
     List<Recipe> getAllRecipes();
-    
+
     Optional<Recipe> getRecipeById(Long id);
 
     Recipe createRecipe(Recipe recipe);
 
     boolean deleteRecipe(Long id);
+
+    Optional<Recipe> updateRecipe(Long id, Recipe updatedRecipe);
 }
