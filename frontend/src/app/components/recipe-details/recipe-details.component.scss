@@ -28,6 +28,18 @@ mat-card-header {
   flex: 1;
 }
 
+.header-actions {
+  display: flex;
+  gap: $spacing-sm;
+  align-items: center;
+}
+
+// Edit button using primary variant
+.btn-primary {
+  @include button-primary;
+  text-decoration: none;
+}
+
 mat-card-title {
   font-size: 2rem;
   color: $color-text;
@@ -135,9 +147,15 @@ p strong {
   .header-content {
     flex-direction: column;
     align-items: stretch;
+  }
 
+  .header-actions {
+    flex-direction: column;
+
+    .btn-primary,
     .btn-danger {
       width: 100%;
+      justify-content: center;
     }
   }
 

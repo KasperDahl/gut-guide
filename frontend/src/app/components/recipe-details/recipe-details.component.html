@@ -7,10 +7,16 @@
             <mat-card-title>{{ recipeValue.name }}</mat-card-title>
             <mat-card-subtitle>{{ recipeValue.mealType }}</mat-card-subtitle>
           </div>
-          <button class="btn-danger" (click)="deleteRecipe(recipeValue.id)">
-            <mat-icon>delete</mat-icon>
-            Delete Recipe
-          </button>
+          <div class="header-actions">
+            <a class="btn-primary" [routerLink]="['/edit-recipe', recipeValue.id]">
+              <mat-icon>edit</mat-icon>
+              Edit Recipe
+            </a>
+            <button class="btn-danger" (click)="deleteRecipe(recipeValue.id)">
+              <mat-icon>delete</mat-icon>
+              Delete Recipe
+            </button>
+          </div>
         </div>
       </mat-card-header>
       <mat-card-content>

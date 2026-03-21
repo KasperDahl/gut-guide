@@ -33,6 +33,9 @@ export class RecipeService {
   }
 
   // UPDATE recipe by ID
+  updateRecipe(id: number, recipe: Recipe): Observable<Recipe> {
+    return this.http.put<Recipe>(`${this.baseUrl}/${id}`, recipe);
+  }
 
 
 
