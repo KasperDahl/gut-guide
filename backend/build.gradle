@@ -27,7 +27,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 
 	// PostgreSQL Driver (Production)
-    // runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'org.postgresql:postgresql'
 
 	// Flyway for Database Migrations
     implementation 'org.flywaydb:flyway-core'

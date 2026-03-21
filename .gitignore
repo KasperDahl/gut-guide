@@ -1,1 +1,18 @@
 node_modules/
+
+# Environment variables
+.env
+
+# Local H2 database files
+backend/data/
+
+# Docker volumes
+pgdata/
+
+# IDE
+.idea/
+*.iml
+
+# Build artifacts
+backend/build/
+frontend/dist/

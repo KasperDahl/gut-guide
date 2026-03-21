@@ -1,27 +1,31 @@
-# Use an official OpenJDK 17 image as the base image
-FROM eclipse-temurin:21
+# ---- Build stage ----
+FROM eclipse-temurin:21-jdk AS build
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the Gradle build files
-COPY build.gradle gradlew settings.gradle ./
-
-# Copy the source code
-COPY src ./src
-
-# Copy the Gradle wrapper and gradle directory
-COPY gradlew ./
+COPY build.gradle settings.gradle gradlew ./
 COPY gradle ./gradle
 
-# Build the application (skips tests)
-RUN ./gradlew build -x test
+# Download dependencies first (layer caching)
+RUN ./gradlew dependencies --no-daemon
 
-# Expose the port that the Spring Boot app runs on
+COPY src ./src
+
+RUN ./gradlew build -x test --no-daemon
+
+# ---- Runtime stage ----
+FROM eclipse-temurin:21-jre
+
+WORKDIR /app
+
+# Run as non-root user
+RUN groupadd --system appgroup && useradd --system --gid appgroup appuser
+
+COPY --from=build /app/build/libs/backend-0.0.1.jar app.jar
+
+RUN chown appuser:appgroup app.jar
+USER appuser
+
 EXPOSE 8080
 
-# Run the Spring Boot application
-ENTRYPOINT [ "java", "-jar", "build/libs/backend-0.0.1.jar" ]
-
-
-
+ENTRYPOINT ["java", "-jar", "app.jar"]
